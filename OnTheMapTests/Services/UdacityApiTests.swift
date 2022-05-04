@@ -24,9 +24,9 @@ class OnTheMapTests: XCTestCase {
         let result = await UdacityApi.shared.signin(email: "joe@foo.com", password: "***")
         
         switch result {
-        case .success(let response):
+        case .success():
             XCTFail()
-        case .failure(let error):
+        case .failure():
             // success
             print("success!")
         }
