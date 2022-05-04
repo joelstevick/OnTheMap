@@ -16,6 +16,7 @@
 		753EBFC72823132000C53403 /* UdacityApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFC62823132000C53403 /* UdacityApi.swift */; };
 		753EBFCF282316CE00C53403 /* UdacityApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFCE282316CE00C53403 /* UdacityApiTests.swift */; };
 		753EBFDB2823235F00C53403 /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFDA2823235F00C53403 /* SignInResponse.swift */; };
+		753EBFDD282348E200C53403 /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFDC282348E200C53403 /* SignInRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		753EBFCC282316CE00C53403 /* OnTheMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnTheMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		753EBFCE282316CE00C53403 /* UdacityApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityApiTests.swift; sourceTree = "<group>"; };
 		753EBFDA2823235F00C53403 /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
+		753EBFDC282348E200C53403 /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				753EBFDA2823235F00C53403 /* SignInResponse.swift */,
+				753EBFDC282348E200C53403 /* SignInRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				753EBFC72823132000C53403 /* UdacityApi.swift in Sources */,
+				753EBFDD282348E200C53403 /* SignInRequest.swift in Sources */,
 				753EBFDB2823235F00C53403 /* SignInResponse.swift in Sources */,
 				753EBFB52822ED8100C53403 /* LoginViewController.swift in Sources */,
 				753EBFB12822ED8100C53403 /* AppDelegate.swift in Sources */,
