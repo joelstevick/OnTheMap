@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="7pC-td-51I">
-                                <rect key="frame" x="167" y="143" width="80" height="128"/>
+                                <rect key="frame" x="167" y="108" width="80" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="aGd-CA-Buf"/>
                                 </constraints>
@@ -87,10 +87,10 @@
                             <constraint firstItem="F5F-EB-W27" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Qd-ih-7Mj"/>
                             <constraint firstItem="7pC-td-51I" firstAttribute="centerX" secondItem="UVk-bh-G3K" secondAttribute="centerX" id="H5u-dh-5sV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UVk-bh-G3K" secondAttribute="trailing" constant="16" id="cu1-GI-joM"/>
-                            <constraint firstItem="7pC-td-51I" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="55" id="dTp-6r-eTn"/>
                             <constraint firstItem="UVk-bh-G3K" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eMO-RU-nFU"/>
                             <constraint firstItem="UVk-bh-G3K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="hFz-Ti-x00"/>
                             <constraint firstItem="F5F-EB-W27" firstAttribute="top" secondItem="THT-HR-1Oh" secondAttribute="bottom" constant="33.5" id="pe0-Ai-FZu"/>
+                            <constraint firstItem="7pC-td-51I" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="sa4-5s-yah"/>
                             <constraint firstItem="BNj-dQ-w3W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="xKU-CJ-jiL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BNj-dQ-w3W" secondAttribute="trailing" constant="16" id="yZV-Gv-rYp"/>
                         </constraints>
