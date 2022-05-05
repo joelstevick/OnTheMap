@@ -37,12 +37,16 @@ class UdacityApi {
         return request
         
     }
-    private func sendRequest<ResponseType: Decodable>(request: URLRequest, responseType: ResponseType) async -> Result<ResponseType, UdacityApiError> {
+    private func sendRequest<RequestType: Encodable, ResponseType: Decodable>
+    (url: UdacityUrl,  method: String, body: RequestType) async ->
+    Result<ResponseType, UdacityApiError> {
         do {
+            let request = try buildRequest(url: url.rawValue, method: method, body: body)
+            
             // send the request over the wire
             let session = URLSession.shared
             let (data, _) =  try await session.data(for: request as URLRequest)
-        
+            
             // required transformation for results
             let range = 5..<data.count
             let transformedData = data.subdata(in: range) /* subset response data! */
@@ -54,20 +58,8 @@ class UdacityApi {
             return .failure(.NetworkError)
         }
     }
-    private func sendRequest<RequestType: Encodable, ResponseType: Decodable>
-    (url: UdacityUrl,  method: String, body: RequestType) async throws -> Result<ResponseType, UdacityApiError>
-    {
-        let request = try buildRequest(url: url.rawValue, method: method, body: body)
-        
-        let results = await sendRequest(request: request, responseType: ResponseType)
-        
-        
-    }
     func signin(email: String, password: String) async -> Result<SignInResponse, Error> {
         
-        let request = buildRequest(url: URL, method: "POST", body: "{ \"}")
-        let results = await sendRequest(request: <#T##URLRequest#>)
-        return .failure(UdacityApiError.Noop)
     }
     
 }
