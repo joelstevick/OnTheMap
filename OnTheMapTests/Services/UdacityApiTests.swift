@@ -10,27 +10,36 @@ import XCTest
 
 // The main purpose of these integration tests is to TDD the api
 class OnTheMapTests: XCTestCase {
-
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-
+    
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
+    
     func testSignIn_GivenBadCreds_ShouldFail() async throws {
-      
-        let result = await UdacityApi.shared.signin(username: "joelstevick@outlook.com", password: "!S0n0fg0d!123")
-       
+        
+        let result = await UdacityApi.shared.signin(username: "joe-foo@bar.com", password: "xxx")
+        
         switch result {
-        case .success(let response):
-            print(response)
+        case .success(_):
             XCTFail()
-        case .failure(_):
-            // success
-            print("success!")
+        case .failure(_): break
         }
     }
-
+    
+    func testSignIn_GoodBadCreds_ShouldSucceed() async throws {
+        
+        let result = await UdacityApi.shared.signin(username: getEnvVar("UDACITY_USERNAME")!, password: getEnvVar("UDACITY_PASSWORD")!)
+        
+        switch result {
+        case .success(_): break
+            
+        case .failure(_):
+            XCTFail()
+        }
+    }
+    
 }
