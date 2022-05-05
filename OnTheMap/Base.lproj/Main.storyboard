@@ -93,15 +93,60 @@
                     <connections>
                         <outlet property="email" destination="umO-bx-KWx" id="e14-QS-o9G"/>
                         <outlet property="password" destination="7cL-Wu-0Y9" id="cXz-bL-H0z"/>
+                        <segue destination="4c4-SE-9Tm" kind="show" identifier="mapview" id="hYh-a1-x2R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140.57971014492756" y="106.47321428571428"/>
+            <point key="canvasLocation" x="-681" y="9"/>
+        </scene>
+        <!--On The Map-->
+        <scene sceneID="uwU-ZP-a2m">
+            <objects>
+                <viewController id="Vl3-AM-rg0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nPD-i4-S7Z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jhx-rW-vPK">
+                                <rect key="frame" x="69" y="237" width="308" height="192"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dBl-rg-CCs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="On The Map" id="ssF-Ag-M8b"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SiI-ue-lKQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="931.88405797101461" y="-3.3482142857142856"/>
+        </scene>
+        <!--On The Map-->
+        <scene sceneID="ckv-lU-cnU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4c4-SE-9Tm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="On The Map" id="k2d-O7-IMP"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lPn-Rm-sT7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Vl3-AM-rg0" kind="relationship" relationship="rootViewController" id="Evg-Uj-HlP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8pp-2Y-n1E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130" y="-3"/>
         </scene>
     </scenes>
     <resources>
         <image name="LaunchLogo" width="80" height="80"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

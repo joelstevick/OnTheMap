@@ -26,6 +26,8 @@ class LoginViewController: UIViewController {
             
             if let signinError = signinError {
                 showLoginFailure(message: signinError)
+            } else {
+                performSegue(withIdentifier: "mapview", sender: self)
             }
         }
     }
