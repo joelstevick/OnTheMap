@@ -21,7 +21,7 @@ class OnTheMapTests: XCTestCase {
 
     func testSignIn_GivenBadCreds_ShouldFail() async throws {
       
-        let result = await UdacityApi.shared.signin(email: "joe@foo.com", password: "***")
+        let result = await UdacityApi.shared.signin(username: "joelstevick@outlook.com", password: "!S0n0fg0d!123")
        
         switch result {
         case .success(let response):

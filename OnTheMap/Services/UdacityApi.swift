@@ -22,7 +22,7 @@ class UdacityApi {
         
     }
     
-    private func buildRequest(url: String, method: String, body: String) throws -> URLRequest {
+    private func buildRequest<T: Encodable>(url: String, method: String, body: T) throws -> URLRequest {
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = method
         
@@ -31,14 +31,16 @@ class UdacityApi {
             
             request.addValue("application/json", forHTTPHeaderField: "Accept")
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            
             request.httpBody = try encoder.encode(body)
+            
         }
         
         return request
         
     }
-    private func sendRequest< ResponseType: Decodable>
-    (url: UdacityUrl,  method: String, body: String, responseType: ResponseType.Type) async ->
+    private func sendRequest< T: Encodable, ResponseType: Decodable>
+    (url: UdacityUrl,  method: String, body: T, responseType: ResponseType.Type) async ->
     Result<ResponseType, UdacityApiError> {
         do {
             let request = try buildRequest(url: url.rawValue, method: method, body: body)
@@ -61,8 +63,8 @@ class UdacityApi {
             return .failure(.NetworkError(description: "Unknown error"))
         }
     }
-    func signin(email: String, password: String) async -> Result<SignInResponse, UdacityApiError> {
-        let body = "{\"udacity\": {\"username\": \"\(email)\", \"password\": \"\(password)\"}}"
+    func signin(username: String, password: String) async -> Result<SignInResponse, UdacityApiError> {
+        let body = SignInRequest(username: username, password: password)
         
         let result = await sendRequest(url: UdacityUrl.session, method: "POST", body: body, responseType: SignInResponse.self)
         

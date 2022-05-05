@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+struct UdacitySignInBody: Codable {
+    let username: String
+    let password: String
+}
+struct SignInRequest: Codable {
+    var udacity: UdacitySignInBody?
+    
+    init (username: String, password: String) {
+        udacity = UdacitySignInBody(username: username, password: password)
+    }
+}
