@@ -19,15 +19,21 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: - Actions
-    
     @IBAction func loginPressed(_ sender: UIButton) {
         
-        async {
-            let signedInOk = await UdacityApi.shared.signin(username: email.text!, password: password.text!)
+        Task {
+            let signinError = await UdacityApi.shared.signin(username: email.text!, password: password.text!)
             
-            print (signedInOk)
+            if let signinError = signinError {
+                showLoginFailure(message: signinError)
+            }
         }
     }
     
+    func showLoginFailure(message: String) {
+        let alertVC = UIAlertController(title: "Login Failed", message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        show(alertVC, sender: nil)
+    }
 }
 

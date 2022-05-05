@@ -21,19 +21,20 @@ class OnTheMapTests: XCTestCase {
     
     func testSignIn_GivenBadCreds_ShouldFail() async throws {
         
-        let signedInOk = await UdacityApi.shared.signin(username: "joe-foo@bar.com", password: "xxx")
+        let signinError = await UdacityApi.shared.signin(username: "joe-foo@bar.com", password: "xxx")
         
-        if signedInOk {
+        if signinError == nil {
             XCTFail()
         }
     }
     
     func testSignIn_GivenGoodCreds_ShouldSucceed() async throws {
         
-        let signedInOk = await UdacityApi.shared.signin(username: getEnvVar("UDACITY_USERNAME")!, password: getEnvVar("UDACITY_PASSWORD")!)
+        let signinError = await UdacityApi.shared.signin(username: getEnvVar("UDACITY_USERNAME")!, password: getEnvVar("UDACITY_PASSWORD")!)
         
-        if !signedInOk {
+        if signinError != nil {
             XCTFail()
+            
         }
     }
     

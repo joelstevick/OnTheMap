@@ -63,7 +63,7 @@ class UdacityApi {
             return .failure(.NetworkError(description: "Unknown error"))
         }
     }
-    func signin(username: String, password: String) async -> Bool {
+    func signin(username: String, password: String) async -> String? {
         let body = SignInRequest(username: username, password: password)
         
         let result = await sendRequest(url: UdacityUrl.session, method: "POST", body: body, responseType: SignInResponse.self)
@@ -71,12 +71,12 @@ class UdacityApi {
         switch result {
         case .success(let response):
             if response.error == nil {
-                return true
+                return nil
             } else {
-                return false
+                return response.error
             }
-        case .failure(_) :
-            return false
+        case .failure(let error) :
+            return error.localizedDescription
         }
         
     }
