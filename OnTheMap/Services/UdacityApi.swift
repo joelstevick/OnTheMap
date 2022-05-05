@@ -7,19 +7,22 @@
 
 import Foundation
 
-enum UdacityApiError: Error {
+private enum UdacityApiError: Error {
     case Noop
     case NetworkError
 }
+
+private enum UdacityUrl: String {
+    case session = "https://onthemap-api.udacity.com/v1/session"
+}
 class UdacityApi {
     static let shared = UdacityApi()
-    private static let url = "https://onthemap-api.udacity.com/v1/session"
     
     private init() {
         
     }
     
-    private func buildRequest<T: Codable>(url: String, method: String, body: T?) throws -> URLRequest {
+    private func buildRequest<T: Encodable>(url: String, method: String, body: T?) throws -> URLRequest {
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = method
         
@@ -34,7 +37,7 @@ class UdacityApi {
         return request
         
     }
-    private func sendRequest<ResponseType: Decodable>(request: URLRequest) async -> Result<ResponseType, UdacityApiError> {
+    private func sendRequest<ResponseType: Decodable>(request: URLRequest, responseType: ResponseType) async -> Result<ResponseType, UdacityApiError> {
         do {
             // send the request over the wire
             let session = URLSession.shared
@@ -50,6 +53,15 @@ class UdacityApi {
         } catch {
             return .failure(.NetworkError)
         }
+    }
+    private func sendRequest<RequestType: Encodable, ResponseType: Decodable>
+    (url: UdacityUrl,  method: String, body: RequestType) async throws -> Result<ResponseType, UdacityApiError>
+    {
+        let request = try buildRequest(url: url.rawValue, method: method, body: body)
+        
+        let results = await sendRequest(request: request, responseType: ResponseType)
+        
+        
     }
     func signin(email: String, password: String) async -> Result<SignInResponse, Error> {
         

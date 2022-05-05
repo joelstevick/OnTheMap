@@ -17,6 +17,7 @@
 		753EBFCF282316CE00C53403 /* UdacityApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFCE282316CE00C53403 /* UdacityApiTests.swift */; };
 		753EBFDB2823235F00C53403 /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFDA2823235F00C53403 /* SignInResponse.swift */; };
 		753EBFDD282348E200C53403 /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFDC282348E200C53403 /* SignInRequest.swift */; };
+		753EBFE02823497A00C53403 /* GetEnvVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFDF2823497A00C53403 /* GetEnvVar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		753EBFCE282316CE00C53403 /* UdacityApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityApiTests.swift; sourceTree = "<group>"; };
 		753EBFDA2823235F00C53403 /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
 		753EBFDC282348E200C53403 /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
+		753EBFDF2823497A00C53403 /* GetEnvVar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEnvVar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		753EBFAF2822ED8100C53403 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				753EBFDE2823496400C53403 /* Util */,
 				753EBFD92823233400C53403 /* Models */,
 				753EBFC5282312D700C53403 /* Services */,
 				753EBFB02822ED8100C53403 /* AppDelegate.swift */,
@@ -136,6 +139,14 @@
 				753EBFDC282348E200C53403 /* SignInRequest.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		753EBFDE2823496400C53403 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				753EBFDF2823497A00C53403 /* GetEnvVar.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				753EBFE02823497A00C53403 /* GetEnvVar.swift in Sources */,
 				753EBFC72823132000C53403 /* UdacityApi.swift in Sources */,
 				753EBFDD282348E200C53403 /* SignInRequest.swift in Sources */,
 				753EBFDB2823235F00C53403 /* SignInResponse.swift in Sources */,
