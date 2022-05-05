@@ -7,7 +7,7 @@
 
 import Foundation
 
-private enum UdacityApiError: Error {
+enum UdacityApiError: Error {
     case Noop
     case NetworkError
 }
@@ -38,7 +38,7 @@ class UdacityApi {
         
     }
     private func sendRequest< ResponseType: Decodable>
-    (url: UdacityUrl,  method: String, body: String) async ->
+    (url: UdacityUrl,  method: String, body: String, responseType: ResponseType.Type) async ->
     Result<ResponseType, UdacityApiError> {
         do {
             let request = try buildRequest(url: url.rawValue, method: method, body: body)
@@ -58,7 +58,10 @@ class UdacityApi {
             return .failure(.NetworkError)
         }
     }
-    func signin(email: String, password: String) async -> Result<SignInResponse, Error> {
+    func signin(email: String, password: String) async -> Result<SignInResponse, UdacityApiError> {
+        let body = "{\"udacity\": {\"usernmae\": \"\(email)\", \"password\": \"\(password)\"}}"
+        
+        return await sendRequest(url: UdacityUrl.session, method: "POST", body: body, responseType: SignInResponse.self)
         
     }
     
