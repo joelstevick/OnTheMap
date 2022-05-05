@@ -18,13 +18,18 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     // MARK: - Actions
     @IBAction func loginPressed(_ sender: UIButton) {
+        
+        activityIndicator.startAnimating()
         
         Task {
             let signinError = await UdacityApi.shared.signin(username: email.text!, password: password.text!)
             
-           
+            self.activityIndicator.stopAnimating()
+            
             if let signinError = signinError {
                 showLoginFailure(message: signinError)
             } else {
