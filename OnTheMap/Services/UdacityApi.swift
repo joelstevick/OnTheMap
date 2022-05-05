@@ -22,7 +22,7 @@ class UdacityApi {
         
     }
     
-    private func buildRequest<T: Encodable>(url: String, method: String, body: T?) throws -> URLRequest {
+    private func buildRequest(url: String, method: String, body: String) throws -> URLRequest {
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = method
         
@@ -37,8 +37,8 @@ class UdacityApi {
         return request
         
     }
-    private func sendRequest<RequestType: Encodable, ResponseType: Decodable>
-    (url: UdacityUrl,  method: String, body: RequestType) async ->
+    private func sendRequest< ResponseType: Decodable>
+    (url: UdacityUrl,  method: String, body: String) async ->
     Result<ResponseType, UdacityApiError> {
         do {
             let request = try buildRequest(url: url.rawValue, method: method, body: body)
