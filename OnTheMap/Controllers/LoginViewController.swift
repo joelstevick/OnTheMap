@@ -8,7 +8,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
     // MARK: - properties
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -19,10 +19,14 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: - Actions
-
-    @IBAction func loginPressed(_ sender: UIButton) async {
+    
+    @IBAction func loginPressed(_ sender: UIButton) {
         
-        
+        async {
+            let signedInOk = await UdacityApi.shared.signin(username: email.text!, password: password.text!)
+            
+            print (signedInOk)
+        }
     }
     
 }
