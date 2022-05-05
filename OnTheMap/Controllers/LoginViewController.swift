@@ -17,6 +17,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         errorMessage.isHidden = true
+        
+        navigateToMapView()
     }
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -34,13 +36,16 @@ class LoginViewController: UIViewController {
             if let signinError = signinError {
                 showLoginFailure(message: signinError)
             } else {
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                let mapViewController = storyBoard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-                self.navigationController?.pushViewController(mapViewController, animated: true)
+               navigateToMapView()
             }
         }
     }
     
+    func navigateToMapView() {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let mapViewController = storyBoard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+        self.navigationController?.pushViewController(mapViewController, animated: true)
+    }
     func showLoginFailure(message: String) {
         errorMessage.text = message
         errorMessage.isHidden = false
