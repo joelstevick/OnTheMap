@@ -12,10 +12,11 @@ class LoginViewController: UIViewController {
     // MARK: - properties
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var errorMessage: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        errorMessage.isHidden = true
     }
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -41,7 +42,8 @@ class LoginViewController: UIViewController {
     }
     
     func showLoginFailure(message: String) {
-        
+        errorMessage.text = message
+        errorMessage.isHidden = false
     }
 }
 

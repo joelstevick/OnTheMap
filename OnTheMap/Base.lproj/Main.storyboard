@@ -79,16 +79,25 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="F5F-EB-W27">
                                 <rect key="frame" x="197" y="558" width="20" height="20"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10N-aO-S1h">
+                                <rect key="frame" x="10" y="735.5" width="394" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BNj-dQ-w3W" secondAttribute="bottom" constant="20" id="16g-I3-eo5"/>
                             <constraint firstItem="F5F-EB-W27" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Qd-ih-7Mj"/>
+                            <constraint firstItem="10N-aO-S1h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Dyg-4g-dgR"/>
                             <constraint firstItem="7pC-td-51I" firstAttribute="centerX" secondItem="UVk-bh-G3K" secondAttribute="centerX" id="H5u-dh-5sV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="10N-aO-S1h" secondAttribute="trailing" constant="10" id="OOi-VV-oOf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UVk-bh-G3K" secondAttribute="trailing" constant="16" id="cu1-GI-joM"/>
                             <constraint firstItem="UVk-bh-G3K" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eMO-RU-nFU"/>
                             <constraint firstItem="UVk-bh-G3K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="hFz-Ti-x00"/>
+                            <constraint firstItem="10N-aO-S1h" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-100" id="oUu-NS-OSd"/>
                             <constraint firstItem="F5F-EB-W27" firstAttribute="top" secondItem="THT-HR-1Oh" secondAttribute="bottom" constant="33.5" id="pe0-Ai-FZu"/>
                             <constraint firstItem="7pC-td-51I" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="sa4-5s-yah"/>
                             <constraint firstItem="BNj-dQ-w3W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="xKU-CJ-jiL"/>
@@ -99,6 +108,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="F5F-EB-W27" id="JFV-8C-EFH"/>
                         <outlet property="email" destination="umO-bx-KWx" id="e14-QS-o9G"/>
+                        <outlet property="errorMessage" destination="10N-aO-S1h" id="ACV-Qb-HDN"/>
                         <outlet property="password" destination="7cL-Wu-0Y9" id="cXz-bL-H0z"/>
                     </connections>
                 </viewController>
@@ -160,6 +170,9 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
