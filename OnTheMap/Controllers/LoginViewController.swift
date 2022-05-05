@@ -24,18 +24,19 @@ class LoginViewController: UIViewController {
         Task {
             let signinError = await UdacityApi.shared.signin(username: email.text!, password: password.text!)
             
+           
             if let signinError = signinError {
                 showLoginFailure(message: signinError)
             } else {
-                performSegue(withIdentifier: "mapview", sender: self)
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let mapViewController = storyBoard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+                self.navigationController?.pushViewController(mapViewController, animated: true)
             }
         }
     }
     
     func showLoginFailure(message: String) {
-        let alertVC = UIAlertController(title: "Login Failed", message: message, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        show(alertVC, sender: nil)
+        
     }
 }
 
