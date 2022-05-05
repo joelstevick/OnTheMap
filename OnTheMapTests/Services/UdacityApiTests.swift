@@ -22,9 +22,10 @@ class OnTheMapTests: XCTestCase {
     func testSignIn_GivenBadCreds_ShouldFail() async throws {
       
         let result = await UdacityApi.shared.signin(email: "joe@foo.com", password: "***")
-        
+       
         switch result {
-        case .success(_):
+        case .success(let response):
+            print(response)
             XCTFail()
         case .failure(_):
             // success

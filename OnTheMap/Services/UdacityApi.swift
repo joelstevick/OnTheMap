@@ -9,7 +9,7 @@ import Foundation
 
 enum UdacityApiError: Error {
     case Noop
-    case NetworkError
+    case NetworkError(description: String)
 }
 
 private enum UdacityUrl: String {
@@ -51,17 +51,31 @@ class UdacityApi {
             let range = 5..<data.count
             let transformedData = data.subdata(in: range) /* subset response data! */
             
+            print(String(data: transformedData, encoding: .utf8)!)
+            
             let decoder = JSONDecoder()
             
-            return try .success(decoder.decode(ResponseType.self, from: transformedData))
+            return .success(try decoder.decode(ResponseType.self, from: transformedData))
         } catch {
-            return .failure(.NetworkError)
+            print(error)
+            return .failure(.NetworkError(description: "Unknown error"))
         }
     }
     func signin(email: String, password: String) async -> Result<SignInResponse, UdacityApiError> {
-        let body = "{\"udacity\": {\"usernmae\": \"\(email)\", \"password\": \"\(password)\"}}"
+        let body = "{\"udacity\": {\"username\": \"\(email)\", \"password\": \"\(password)\"}}"
         
-        return await sendRequest(url: UdacityUrl.session, method: "POST", body: body, responseType: SignInResponse.self)
+        let result = await sendRequest(url: UdacityUrl.session, method: "POST", body: body, responseType: SignInResponse.self)
+        
+        switch result {
+        case .success(let response):
+            if response.error == nil {
+                return .success(response)
+            } else {
+                return .failure(UdacityApiError.NetworkError(description: response.error!))
+            }
+        case .failure(let error) :
+            return .failure(error)
+        }
         
     }
     
