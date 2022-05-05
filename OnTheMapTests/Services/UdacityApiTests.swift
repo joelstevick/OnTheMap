@@ -30,7 +30,7 @@ class OnTheMapTests: XCTestCase {
         }
     }
     
-    func testSignIn_GoodBadCreds_ShouldSucceed() async throws {
+    func testSignIn_GoodCreds_ShouldSucceed() async throws {
         
         let result = await UdacityApi.shared.signin(username: getEnvVar("UDACITY_USERNAME")!, password: getEnvVar("UDACITY_PASSWORD")!)
         
