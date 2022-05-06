@@ -124,19 +124,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jhx-rW-vPK">
-                                <rect key="frame" x="69" y="237" width="308" height="192"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jhx-rW-vPK">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dBl-rg-CCs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dBl-rg-CCs" firstAttribute="trailing" secondItem="jhx-rW-vPK" secondAttribute="trailing" id="2An-E3-GZY"/>
+                            <constraint firstItem="dBl-rg-CCs" firstAttribute="bottom" secondItem="jhx-rW-vPK" secondAttribute="bottom" id="6nt-Wf-Pjr"/>
+                            <constraint firstItem="jhx-rW-vPK" firstAttribute="top" secondItem="dBl-rg-CCs" secondAttribute="top" id="CPh-T4-tcq"/>
+                            <constraint firstItem="jhx-rW-vPK" firstAttribute="leading" secondItem="dBl-rg-CCs" secondAttribute="leading" id="Ych-2J-C5n"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="ssF-Ag-M8b"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SiI-ue-lKQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1283" y="-35"/>
+            <point key="canvasLocation" x="1282.608695652174" y="-35.491071428571423"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PKa-CY-U1j">

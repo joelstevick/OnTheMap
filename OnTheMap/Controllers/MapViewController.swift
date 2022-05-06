@@ -12,6 +12,11 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // initialize navigation bar
         navigationItem.hidesBackButton = true
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem()
+        navigationItem.leftBarButtonItem?.title = "Pin"
+        
     }
 }
