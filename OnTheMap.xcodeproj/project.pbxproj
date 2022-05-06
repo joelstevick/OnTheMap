@@ -19,6 +19,7 @@
 		753EBFDD282348E200C53403 /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFDC282348E200C53403 /* SignInRequest.swift */; };
 		753EBFE02823497A00C53403 /* GetEnvVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFDF2823497A00C53403 /* GetEnvVar.swift */; };
 		753EBFE22824670800C53403 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFE12824670800C53403 /* MapViewController.swift */; };
+		753EBFE42825E72200C53403 /* StudentLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFE32825E72200C53403 /* StudentLocationResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		753EBFDC282348E200C53403 /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
 		753EBFDF2823497A00C53403 /* GetEnvVar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEnvVar.swift; sourceTree = "<group>"; };
 		753EBFE12824670800C53403 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		753EBFE32825E72200C53403 /* StudentLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			children = (
 				753EBFDA2823235F00C53403 /* SignInResponse.swift */,
 				753EBFDC282348E200C53403 /* SignInRequest.swift */,
+				753EBFE32825E72200C53403 /* StudentLocationResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				753EBFB52822ED8100C53403 /* LoginViewController.swift in Sources */,
 				753EBFB12822ED8100C53403 /* AppDelegate.swift in Sources */,
 				753EBFB32822ED8100C53403 /* SceneDelegate.swift in Sources */,
+				753EBFE42825E72200C53403 /* StudentLocationResponse.swift in Sources */,
 				753EBFE22824670800C53403 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

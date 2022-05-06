@@ -4,7 +4,7 @@
 //
 //  Created by joel.stevick on 5/4/22.
 //
-
+import MapKit
 import XCTest
 @testable import OnTheMap
 
@@ -36,6 +36,10 @@ class OnTheMapTests: XCTestCase {
             XCTFail()
             
         }
+    }
+    
+    func testGetStudentLocations_GivenWellFormedRequest_ShouldReturnStudentLocations() async throws  {
+        
     }
     
 }

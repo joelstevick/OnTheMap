@@ -18,5 +18,9 @@ class MapViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem()
         navigationItem.leftBarButtonItem?.title = "Pin"
         
+       
+        navigationItem.rightBarButtonItem = UIBarButtonItem()
+        navigationItem.rightBarButtonItem?.title = "Refresh"
+        
     }
 }
