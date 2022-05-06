@@ -39,7 +39,11 @@ class OnTheMapTests: XCTestCase {
     }
     
     func testGetStudentLocations_GivenWellFormedRequest_ShouldReturnStudentLocations() async throws  {
+        let studentLocations = await UdacityApi.shared.getStudentLocations()
         
+        if studentLocations == nil {
+            XCTFail()
+        }
     }
     
 }
