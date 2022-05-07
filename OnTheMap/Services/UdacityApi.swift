@@ -14,7 +14,7 @@ enum UdacityApiError: Error {
 
 private enum UdacityUrl: String {
     case session = "https://onthemap-api.udacity.com/v1/session"
-    case studentLocation = "https://onthemap-api.udacity.com/v1/StudentLocation?limit=200&skip=400"
+    case studentLocation = "https://onthemap-api.udacity.com/v1/StudentLocation?limit=200&skip=0"
 }
 class UdacityApi {
     static let shared = UdacityApi()

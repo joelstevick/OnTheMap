@@ -26,6 +26,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // initialize
         Task {
             await getStudentLocations()
+            
+            loadMapView()
         }
     }
     
