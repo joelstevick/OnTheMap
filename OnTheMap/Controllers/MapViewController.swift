@@ -25,7 +25,7 @@ class MapViewController: UIViewController {
         navigationItem.rightBarButtonItem?.title = "Refresh"
         
         // initialize
-        async {
+        Task {
             await getStudentLocations()
         }
     }
@@ -33,8 +33,6 @@ class MapViewController: UIViewController {
     func getStudentLocations() async {
         
         studentLocations = await UdacityApi.shared.getStudentLocations()
-        
-        print(studentLocations)
        
     }
 }
