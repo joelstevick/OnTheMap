@@ -236,7 +236,7 @@
         <scene sceneID="vrL-yM-9cx">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4eT-Z8-fdK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tabBarController storyboardIdentifier="TabBarController" id="p74-n5-XoN" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="p74-n5-XoN" customClass="TabBarController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3Rs-qf-bsj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
