@@ -45,13 +45,13 @@ class UdacityApi {
             let range = 5..<data.count
             let transformedData = data.subdata(in: range) /* subset response data! */
             
-            print(String(data: transformedData, encoding: .utf8)!)
+//            print(String(data: transformedData, encoding: .utf8)!)
             
             let decoder = JSONDecoder()
             
-            return .success(try decoder.decode(ResponseType.self, from: transformedData))
+            return .success(try decoder.decode(ResponseType.self, from: data))
         } catch {
-            print(error)
+            print("ERROR", error)
             return .failure(.NetworkError(description: "Unknown error"))
         }
     }
@@ -91,7 +91,7 @@ class UdacityApi {
             
             return .success(try decoder.decode(ResponseType.self, from: transformedData))
         } catch {
-            print(error)
+            print("ERROR", error)
             return .failure(.NetworkError(description: "Unknown error"))
         }
     }
@@ -116,11 +116,13 @@ class UdacityApi {
     
     func getStudentLocations() async -> [StudentLocation]? {
         
-        let result = await get(url: UdacityUrl.studentLocation, responseType: [StudentLocation].self)
+        let result = await get(url: UdacityUrl.studentLocation, responseType: StudentLocationResponse.self)
+        
+        print("RESULT", result)
         
         switch result {
-        case .success(let studentLocations):
-            return studentLocations
+        case .success(let response):
+            return response.results
         case .failure(_) :
             return nil
         }
