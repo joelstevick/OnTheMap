@@ -17,6 +17,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mapView.delegate = self
 
         // initialize navigation bar
         navigationItem.hidesBackButton = true
@@ -34,6 +36,38 @@ class MapViewController: UIViewController, MKMapViewDelegate {
        
     }
     
+    func loadMapView() {
+        var annotations = [MKPointAnnotation]()
+        
+        if let studentLocations = studentLocations {
+            for studentLocation in studentLocations {
+                // Notice that the float values are being used to create CLLocationDegree values.
+                // This is a version of the Double type.
+                let lat = CLLocationDegrees(studentLocation.latitude)
+                let long = CLLocationDegrees(studentLocation.longitude)
+                
+                // The lat and long are used to create a CLLocationCoordinates2D instance.
+                let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                
+                let first = studentLocation.firstName
+                let last = studentLocation.lastName
+                let mediaURL = studentLocation.mediaURL
+                
+                // Here we create the annotation and set its coordiate, title, and subtitle properties
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = coordinate
+                annotation.title = "\(first) \(last)"
+                annotation.subtitle = mediaURL
+                
+                // Finally we place the annotation in an array of annotations.
+                annotations.append(annotation)
+            }
+            
+            // When the array is complete, we add the annotations to the map.
+            self.mapView.addAnnotations(annotations)
+        }
+        
+    }
     // MARK: - MKMapViewDelegate
 
     // Here we create a view with a "right callout accessory view". You might choose to look into other
