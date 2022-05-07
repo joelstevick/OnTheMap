@@ -45,8 +45,6 @@ class UdacityApi {
             let range = 5..<data.count
             let transformedData = data.subdata(in: range) /* subset response data! */
             
-//            print(String(data: transformedData, encoding: .utf8)!)
-            
             let decoder = JSONDecoder()
             
             return .success(try decoder.decode(ResponseType.self, from: data))
