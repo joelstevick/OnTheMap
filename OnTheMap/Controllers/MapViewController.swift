@@ -9,6 +9,8 @@ import UIKit
 
 class MapViewController: UIViewController {
 
+    var studentLocations: [StudentLocation]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,5 +24,17 @@ class MapViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem()
         navigationItem.rightBarButtonItem?.title = "Refresh"
         
+        // initialize
+        async {
+            await getStudentLocations()
+        }
+    }
+    
+    func getStudentLocations() async {
+        
+        studentLocations = await UdacityApi.shared.getStudentLocations()
+        
+        print(studentLocations)
+       
     }
 }
