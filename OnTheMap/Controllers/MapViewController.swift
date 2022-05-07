@@ -21,13 +21,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // initialize navigation bar
         navigationItem.hidesBackButton = true
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem()
-        navigationItem.leftBarButtonItem?.title = "Pin"
-        
-       
-        navigationItem.rightBarButtonItem = UIBarButtonItem()
-        navigationItem.rightBarButtonItem?.title = "Refresh"
-        
         // initialize
         Task {
             await getStudentLocations()
