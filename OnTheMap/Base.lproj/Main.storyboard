@@ -138,6 +138,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="ssF-Ag-M8b"/>
+                    <connections>
+                        <outlet property="mapView" destination="jhx-rW-vPK" id="yO9-RA-qRH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SiI-ue-lKQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
