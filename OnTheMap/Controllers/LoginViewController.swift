@@ -43,7 +43,7 @@ class LoginViewController: UIViewController {
     
     func navigateToMapView() {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let mapViewController = storyBoard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+        let mapViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
         self.navigationController?.pushViewController(mapViewController, animated: true)
     }
     func showLoginFailure(message: String) {
