@@ -22,6 +22,7 @@
 		753EBFE42825E72200C53403 /* StudentLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFE32825E72200C53403 /* StudentLocationResponse.swift */; };
 		753EBFE628273DCC00C53403 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFE528273DCC00C53403 /* TabBarController.swift */; };
 		753EBFE828273F3700C53403 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFE728273F3700C53403 /* TableViewController.swift */; };
+		753EBFEA282841F100C53403 /* AddStudentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFE9282841F100C53403 /* AddStudentLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		753EBFE32825E72200C53403 /* StudentLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationResponse.swift; sourceTree = "<group>"; };
 		753EBFE528273DCC00C53403 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		753EBFE728273F3700C53403 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		753EBFE9282841F100C53403 /* AddStudentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				753EBFE12824670800C53403 /* MapViewController.swift */,
 				753EBFE528273DCC00C53403 /* TabBarController.swift */,
 				753EBFE728273F3700C53403 /* TableViewController.swift */,
+				753EBFE9282841F100C53403 /* AddStudentLocationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				753EBFE02823497A00C53403 /* GetEnvVar.swift in Sources */,
+				753EBFEA282841F100C53403 /* AddStudentLocationViewController.swift in Sources */,
 				753EBFC72823132000C53403 /* UdacityApi.swift in Sources */,
 				753EBFDD282348E200C53403 /* SignInRequest.swift in Sources */,
 				753EBFE628273DCC00C53403 /* TabBarController.swift in Sources */,

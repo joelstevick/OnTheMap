@@ -147,7 +147,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="ssF-Ag-M8b">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="plus" catalog="system" id="G2g-zD-kds"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="plus" catalog="system" id="G2g-zD-kds">
+                            <connections>
+                                <segue destination="mCE-qa-9yo" kind="presentation" id="0bv-qa-19g"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="nuJ-Mn-9jy"/>
                     </navigationItem>
                     <connections>
@@ -157,6 +161,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SiI-ue-lKQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2101" y="-940"/>
+        </scene>
+        <!--Add My Location-->
+        <scene sceneID="NOy-cK-DrE">
+            <objects>
+                <viewController id="mCE-qa-9yo" customClass="AddStudentLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ACB-4Z-wKA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="CEG-Pg-CZF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add My Location" id="vac-XU-O7R"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PBx-7Q-dnU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3342" y="-928"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PKa-CY-U1j">
