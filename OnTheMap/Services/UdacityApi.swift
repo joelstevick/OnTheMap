@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import NanoID
 
 enum UdacityApiError: Error {
     case Noop
@@ -33,10 +34,11 @@ class UdacityApi {
         
     }
     private func get<ResponseType: Decodable>
-    (url: UdacityUrl, responseType: ResponseType.Type) async ->
+    (url: UdacityUrl, queryStrings: [String], responseType: ResponseType.Type) async ->
     Result<ResponseType, UdacityApiError> {
+        // execute
         do {
-            let request = try buildGetRequest(url: url.rawValue)
+            let request = try buildGetRequest(url: url.rawValue + "&" + queryStrings.joined(separator: "&"))
             
             // send the request over the wire
             let session = URLSession.shared
@@ -111,7 +113,7 @@ class UdacityApi {
     
     func getStudentLocations() async -> [StudentLocation]? {
         
-        let result = await get(url: UdacityUrl.studentLocations, responseType: StudentLocationResponse.self)
+        let result = await get(url: UdacityUrl.studentLocations, queryStrings: [], responseType: StudentLocationResponse.self)
         
         switch result {
         case .success(let response):
@@ -158,7 +160,7 @@ class UdacityApi {
     }
     
     func getStudentLocation(_ uniqueKey: String) async -> StudentLocation? {
-        let result = await get(url: UdacityUrl.studentLocations, responseType: StudentLocationResponse.self)
+        let result = await get(url: UdacityUrl.studentLocations,queryStrings: ["uniqueKey=\(uniqueKey)"], responseType: StudentLocationResponse.self)
         
         switch result {
         case .success(let response):
@@ -175,7 +177,10 @@ class UdacityApi {
         }
     }
     
-    //
+    func setSignedInStudentLocation(studentLocation: StudentLocation) async {
+        defaults.set(studentLocation.uniqueKey, forKey: "uniqueKey")
+        
+    }
     func getSignedInStudentLocation() async -> StudentLocation? {
         if let uniqueKey = defaults.string(forKey: "uniqueKey") {
             do {

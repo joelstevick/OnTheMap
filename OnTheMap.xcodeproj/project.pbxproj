@@ -23,6 +23,7 @@
 		753EBFE628273DCC00C53403 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFE528273DCC00C53403 /* TabBarController.swift */; };
 		753EBFE828273F3700C53403 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFE728273F3700C53403 /* TableViewController.swift */; };
 		753EBFEA282841F100C53403 /* AddStudentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFE9282841F100C53403 /* AddStudentLocationViewController.swift */; };
+		753EBFEF28287BCF00C53403 /* NanoID in Frameworks */ = {isa = PBXBuildFile; productRef = 753EBFEE28287BCF00C53403 /* NanoID */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				753EBFEF28287BCF00C53403 /* NanoID in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +182,9 @@
 			dependencies = (
 			);
 			name = OnTheMap;
+			packageProductDependencies = (
+				753EBFEE28287BCF00C53403 /* NanoID */,
+			);
 			productName = OnTheMap;
 			productReference = 753EBFAD2822ED8100C53403 /* OnTheMap.app */;
 			productType = "com.apple.product-type.application";
@@ -230,6 +235,9 @@
 				Base,
 			);
 			mainGroup = 753EBFA42822ED8100C53403;
+			packageReferences = (
+				753EBFED28287BCF00C53403 /* XCRemoteSwiftPackageReference "NanoID" */,
+			);
 			productRefGroup = 753EBFAE2822ED8100C53403 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -555,6 +563,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		753EBFED28287BCF00C53403 /* XCRemoteSwiftPackageReference "NanoID" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ellliott/NanoID";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		753EBFEE28287BCF00C53403 /* NanoID */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 753EBFED28287BCF00C53403 /* XCRemoteSwiftPackageReference "NanoID" */;
+			productName = NanoID;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 753EBFA52822ED8100C53403 /* Project object */;
 }
