@@ -40,11 +40,12 @@ class TableViewController: UITableViewController {
     // MARK: - Table view cell
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath)
         
         let studentLocation = studentLocations![indexPath.row]
         
         cell.textLabel?.text = "\(studentLocation.firstName) \(studentLocation.lastName)"
+        
         
         return cell
     }
