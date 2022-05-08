@@ -15,9 +15,11 @@ enum UdacityApiError: Error {
 private enum UdacityUrl: String {
     case session = "https://onthemap-api.udacity.com/v1/session"
     case studentLocation = "https://onthemap-api.udacity.com/v1/StudentLocation?limit=200&skip=0"
+    case getStudentLocation = ""
 }
 class UdacityApi {
     static let shared = UdacityApi()
+    let defaults = UserDefaults.standard
     
     private init() {
         
@@ -112,8 +114,6 @@ class UdacityApi {
         
         let result = await get(url: UdacityUrl.studentLocation, responseType: StudentLocationResponse.self)
         
-        print("RESULT", result)
-        
         switch result {
         case .success(let response):
             return clean(response.results)
@@ -157,5 +157,37 @@ class UdacityApi {
         }
         
     }
+    
+//    func getStudentLocation(uniqueKey: String) async -> StudentLocation? {
+//        let result = await get(url: UdacityUrl.studentLocation, responseType: StudentLocationResponse.self)
+//
+//        switch result {
+//        case .success(let response):
+//            return clean(response.results)
+//
+//        case .failure(_) :
+//            return nil
+//        }
+//        let singleStudentLocation = await
+//    }
+//
+//    func mapSingleStudentLocation(singleStudentLocation: SingleStudentLocation) -> StudentLocation {
+//        return StudentLocation(
+//            uniqueKey: singleStudentLocation.user.key,
+//            firstName: singleStudentLocation.user.first_name,
+//            lastName: singleStudentLocation.user.last_name,
+//            latitude: singleStudentLocation.user.,
+//            longitude: <#T##Double#>,
+//            mapString: <#T##String#>,
+//            mediaURL: <#T##String#>
+//    }
+//
+//    func currentStudentLocation() async -> StudentLocation? {
+//        if let uniqueKey = defaults.string(forKey: "uniqueKey") {
+//            
+//        } else {
+//            return nil
+//        }
+//    }
     
 }
