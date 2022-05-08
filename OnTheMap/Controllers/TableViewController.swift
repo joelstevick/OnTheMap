@@ -58,6 +58,12 @@ class TableViewController: UITableViewController {
     func getStudentLocations() async {
         
         studentLocations = await UdacityApi.shared.getStudentLocations()
+        
+        if var sl = studentLocations {
+            sl.sort { $0.firstName < $1.firstName }
+            
+            studentLocations = sl
+        }
        
     }
     
