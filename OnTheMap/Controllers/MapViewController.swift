@@ -12,6 +12,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
     // MARK: - Properties
     var studentLocations: [StudentLocation]?
+    
     @IBOutlet weak var mapView: MKMapView!
     
     // MARK: - Lifecycle methods
