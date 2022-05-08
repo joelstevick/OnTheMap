@@ -51,7 +51,13 @@ class TableViewController: UITableViewController {
     
     // MARK: - Table view delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let studentLocation = studentLocations![indexPath.row]
         
+        if let url = URL(string: studentLocation.mediaURL) {
+        
+            print(url)
+            UIApplication.shared.open(url)
+        }
     }
 
     // MARK: - Utility functions
