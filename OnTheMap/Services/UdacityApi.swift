@@ -41,10 +41,6 @@ class UdacityApi {
             let session = URLSession.shared
             let (data, _) =  try await session.data(for: request as URLRequest)
             
-            // required transformation for results
-            let range = 5..<data.count
-            let transformedData = data.subdata(in: range) /* subset response data! */
-            
             let decoder = JSONDecoder()
             
             return .success(try decoder.decode(ResponseType.self, from: data))
