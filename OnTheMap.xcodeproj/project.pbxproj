@@ -21,6 +21,7 @@
 		753EBFE22824670800C53403 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFE12824670800C53403 /* MapViewController.swift */; };
 		753EBFE42825E72200C53403 /* StudentLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFE32825E72200C53403 /* StudentLocationResponse.swift */; };
 		753EBFE628273DCC00C53403 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFE528273DCC00C53403 /* TabBarController.swift */; };
+		753EBFE828273F3700C53403 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFE728273F3700C53403 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		753EBFE12824670800C53403 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		753EBFE32825E72200C53403 /* StudentLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationResponse.swift; sourceTree = "<group>"; };
 		753EBFE528273DCC00C53403 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		753EBFE728273F3700C53403 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				753EBFB42822ED8100C53403 /* LoginViewController.swift */,
 				753EBFE12824670800C53403 /* MapViewController.swift */,
 				753EBFE528273DCC00C53403 /* TabBarController.swift */,
+				753EBFE728273F3700C53403 /* TableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				753EBFC72823132000C53403 /* UdacityApi.swift in Sources */,
 				753EBFDD282348E200C53403 /* SignInRequest.swift in Sources */,
 				753EBFE628273DCC00C53403 /* TabBarController.swift in Sources */,
+				753EBFE828273F3700C53403 /* TableViewController.swift in Sources */,
 				753EBFDB2823235F00C53403 /* SignInResponse.swift in Sources */,
 				753EBFB52822ED8100C53403 /* LoginViewController.swift in Sources */,
 				753EBFB12822ED8100C53403 /* AppDelegate.swift in Sources */,
