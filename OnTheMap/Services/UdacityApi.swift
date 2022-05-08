@@ -116,8 +116,43 @@ class UdacityApi {
         
         switch result {
         case .success(let response):
-            return response.results
+            return clean(response.results)
+            
         case .failure(_) :
+            return nil
+        }
+    }
+    
+    func clean(_ studentLocations: [StudentLocation]?) -> [StudentLocation]? {
+        if var sl = studentLocations {
+            // remove junk rows
+            sl = sl.filter({ studentLocation in
+                if let _ = URL(string: studentLocation.mediaURL) {
+                    return studentLocation.firstName.count > 0
+                } else {
+                    return false
+                }
+            })
+            
+            // uniqueness
+            var unique = [String: StudentLocation]()
+            
+            sl.forEach({ studentLocation in
+                unique[studentLocation.uniqueKey] = studentLocation
+            })
+            
+            sl = []
+            
+            for (_, studentLocation) in unique {
+                sl.append(studentLocation)
+            }
+            
+            
+            // sort
+            sl.sort { $0.firstName < $1.firstName }
+            
+            return sl
+        } else {
             return nil
         }
         
