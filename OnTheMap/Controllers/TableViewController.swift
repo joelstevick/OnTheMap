@@ -72,7 +72,7 @@ class TableViewController: UITableViewController {
         if var sl = studentLocations {
             // remove junk rows
             sl = sl.filter({ studentLocation in
-                if let url = URL(string: studentLocation.mediaURL) {
+                if let _ = URL(string: studentLocation.mediaURL) {
                     return studentLocation.firstName.count > 0
                 } else {
                     return false
