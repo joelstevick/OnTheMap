@@ -23,7 +23,6 @@
 		753EBFE628273DCC00C53403 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFE528273DCC00C53403 /* TabBarController.swift */; };
 		753EBFE828273F3700C53403 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFE728273F3700C53403 /* TableViewController.swift */; };
 		753EBFEA282841F100C53403 /* AddStudentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFE9282841F100C53403 /* AddStudentLocationViewController.swift */; };
-		753EBFEC2828495E00C53403 /* SingleStudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFEB2828495E00C53403 /* SingleStudentLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +55,6 @@
 		753EBFE528273DCC00C53403 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		753EBFE728273F3700C53403 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		753EBFE9282841F100C53403 /* AddStudentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentLocationViewController.swift; sourceTree = "<group>"; };
-		753EBFEB2828495E00C53403 /* SingleStudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleStudentLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +152,6 @@
 				753EBFDA2823235F00C53403 /* SignInResponse.swift */,
 				753EBFDC282348E200C53403 /* SignInRequest.swift */,
 				753EBFE32825E72200C53403 /* StudentLocationResponse.swift */,
-				753EBFEB2828495E00C53403 /* SingleStudentLocation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -271,7 +268,6 @@
 				753EBFE02823497A00C53403 /* GetEnvVar.swift in Sources */,
 				753EBFEA282841F100C53403 /* AddStudentLocationViewController.swift in Sources */,
 				753EBFC72823132000C53403 /* UdacityApi.swift in Sources */,
-				753EBFEC2828495E00C53403 /* SingleStudentLocation.swift in Sources */,
 				753EBFDD282348E200C53403 /* SignInRequest.swift in Sources */,
 				753EBFE628273DCC00C53403 /* TabBarController.swift in Sources */,
 				753EBFE828273F3700C53403 /* TableViewController.swift in Sources */,
