@@ -16,6 +16,7 @@ enum UdacityApiError: Error {
 private enum UdacityUrl: String {
     case session = "https://onthemap-api.udacity.com/v1/session"
     case studentLocations = "https://onthemap-api.udacity.com/v1/StudentLocation?limit=200&skip=0"
+    case createStudentLocation = "https://onthemap-api.udacity.com/v1/StudentLocation"
 }
 class UdacityApi {
     static let shared = UdacityApi()
@@ -177,8 +178,17 @@ class UdacityApi {
         }
     }
     
-    func setSignedInStudentLocation(studentLocation: StudentLocation) async {
+    func setSignedInStudentLocation(_ studentLocation: StudentLocation) async {
         defaults.set(studentLocation.uniqueKey, forKey: "uniqueKey")
+        
+        let result = await post(url: UdacityUrl.createStudentLocation, body: studentLocation, responseType: CreateStudentResponse.self)
+        
+        switch result {
+        case .success(let response):
+            print ("Created OK ", response.objectId)
+        case .failure(let error) :
+            print ("Created Failed", error.localizedDescription)
+        }
         
     }
     func getSignedInStudentLocation() async -> StudentLocation? {

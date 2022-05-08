@@ -24,6 +24,7 @@
 		753EBFE828273F3700C53403 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFE728273F3700C53403 /* TableViewController.swift */; };
 		753EBFEA282841F100C53403 /* AddStudentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFE9282841F100C53403 /* AddStudentLocationViewController.swift */; };
 		753EBFEF28287BCF00C53403 /* NanoID in Frameworks */ = {isa = PBXBuildFile; productRef = 753EBFEE28287BCF00C53403 /* NanoID */; };
+		753EBFF128287E1A00C53403 /* CreateStudentLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFF028287E1A00C53403 /* CreateStudentLocationResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		753EBFE528273DCC00C53403 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		753EBFE728273F3700C53403 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		753EBFE9282841F100C53403 /* AddStudentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentLocationViewController.swift; sourceTree = "<group>"; };
+		753EBFF028287E1A00C53403 /* CreateStudentLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStudentLocationResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				753EBFDA2823235F00C53403 /* SignInResponse.swift */,
 				753EBFDC282348E200C53403 /* SignInRequest.swift */,
 				753EBFE32825E72200C53403 /* StudentLocationResponse.swift */,
+				753EBFF028287E1A00C53403 /* CreateStudentLocationResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				753EBFB32822ED8100C53403 /* SceneDelegate.swift in Sources */,
 				753EBFE42825E72200C53403 /* StudentLocationResponse.swift in Sources */,
 				753EBFE22824670800C53403 /* MapViewController.swift in Sources */,
+				753EBFF128287E1A00C53403 /* CreateStudentLocationResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

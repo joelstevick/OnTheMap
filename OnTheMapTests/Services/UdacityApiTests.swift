@@ -6,6 +6,8 @@
 //
 import MapKit
 import XCTest
+import NanoID
+
 @testable import OnTheMap
 
 // The main purpose of these integration tests is to TDD the api
@@ -46,4 +48,17 @@ class OnTheMapTests: XCTestCase {
         }
     }
     
+    func testStudentLocation_GivenUniqueKey_ShouldBeAbleToGetAndSet() async throws {
+     
+        let uniqueKey = NanoID.generate()
+        
+        let studentLocation = StudentLocation(uniqueKey: uniqueKey, firstName: "Joe", lastName: "Foo", latitude: 1, longitude: 2, mapString: "somewhere", mediaURL: "https://google.com")
+        
+        await UdacityApi.shared.setSignedInStudentLocation(studentLocation)
+        
+        let savedStudentLocation = await UdacityApi.shared.getSignedInStudentLocation()
+        
+        XCTAssertEqual(savedStudentLocation?.uniqueKey, studentLocation.uniqueKey)
+    }
+        
 }
