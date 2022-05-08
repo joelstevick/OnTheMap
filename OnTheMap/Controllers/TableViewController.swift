@@ -37,8 +37,6 @@ class TableViewController: UITableViewController {
         return studentLocations?.count ?? 0
     }
     
-    // MARK: - Table view cell
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath)
         
@@ -46,8 +44,14 @@ class TableViewController: UITableViewController {
         
         cell.textLabel?.text = "\(studentLocation.firstName) \(studentLocation.lastName)"
         
-        
+        cell.imageView?.image = UIImage(systemName: "mappin")
+                
         return cell
+    }
+    
+    // MARK: - Table view delegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
 
     // MARK: - Utility functions
