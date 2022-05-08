@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         errorMessage.isHidden = true
         
-        navigateToMapView()
+//        navigateToMapView()
     }
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!

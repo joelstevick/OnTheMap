@@ -70,24 +70,28 @@ class UdacityApi {
         
     }
     private func post< T: Encodable, ResponseType: Decodable>
-    (url: UdacityUrl, body: T, responseType: ResponseType.Type) async ->
+    (url: UdacityUrl, body: T, applyTransform: Bool, responseType: ResponseType.Type) async ->
     Result<ResponseType, UdacityApiError> {
         do {
+            let decoder = JSONDecoder()
+            
             let request = try buildPostRequest(url: url.rawValue, body: body)
             
             // send the request over the wire
             let session = URLSession.shared
             let (data, _) =  try await session.data(for: request as URLRequest)
             
-            // required transformation for results
-            let range = 5..<data.count
-            let transformedData = data.subdata(in: range) /* subset response data! */
-            
-            print(String(data: transformedData, encoding: .utf8)!)
-            
-            let decoder = JSONDecoder()
-            
-            return .success(try decoder.decode(ResponseType.self, from: transformedData))
+            if (applyTransform) {
+                // required transformation for results
+                let range = 5..<data.count
+                let transformedData = data.subdata(in: range) /* subset response data! */
+                
+                print(String(data: transformedData, encoding: .utf8)!)
+           
+                return .success(try decoder.decode(ResponseType.self, from: transformedData))
+            } else {
+                return .success(try decoder.decode(ResponseType.self, from: data))
+            }
         } catch {
             print("ERROR", error)
             return .failure(.NetworkError(description: "Unknown error"))
@@ -97,8 +101,8 @@ class UdacityApi {
     // MARK: - Api
     func signin(username: String, password: String) async -> String? {
         let body = SignInRequest(username: username, password: password)
-        
-        let result = await post(url: UdacityUrl.session, body: body, responseType: SignInResponse.self)
+      
+        let result = await post(url: UdacityUrl.session, body: body, applyTransform: true, responseType: SignInResponse.self)
         
         switch result {
         case .success(let response):
@@ -181,7 +185,7 @@ class UdacityApi {
     func setSignedInStudentLocation(_ studentLocation: StudentLocation) async {
         defaults.set(studentLocation.uniqueKey, forKey: "uniqueKey")
         
-        let result = await post(url: UdacityUrl.createStudentLocation, body: studentLocation, responseType: CreateStudentResponse.self)
+        let result = await post(url: UdacityUrl.createStudentLocation, body: studentLocation, applyTransform: false, responseType: CreateStudentResponse.self)
         
         switch result {
         case .success(let response):
