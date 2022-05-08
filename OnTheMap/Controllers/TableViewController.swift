@@ -71,8 +71,12 @@ class TableViewController: UITableViewController {
     func clean() {
         if var sl = studentLocations {
             // remove junk rows
-            sl = sl.filter({ StudentLocation in
-                StudentLocation.firstName.count > 0
+            sl = sl.filter({ studentLocation in
+                if let url = URL(string: studentLocation.mediaURL) {
+                    return studentLocation.firstName.count > 0
+                } else {
+                    return false
+                }
             })
             
             // uniqueness
