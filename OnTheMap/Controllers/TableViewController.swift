@@ -60,6 +60,12 @@ class TableViewController: UITableViewController {
         studentLocations = await UdacityApi.shared.getStudentLocations()
         
         if var sl = studentLocations {
+            // remove junk rows
+            sl = sl.filter({ StudentLocation in
+                StudentLocation.firstName.count > 0
+            })
+            
+            // sort
             sl.sort { $0.firstName < $1.firstName }
             
             studentLocations = sl
