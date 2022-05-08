@@ -55,7 +55,6 @@ class TableViewController: UITableViewController {
         
         if let url = URL(string: studentLocation.mediaURL) {
         
-            print(url)
             UIApplication.shared.open(url)
         }
     }
@@ -65,18 +64,36 @@ class TableViewController: UITableViewController {
         
         studentLocations = await UdacityApi.shared.getStudentLocations()
         
+        clean()
+       
+    }
+    
+    func clean() {
         if var sl = studentLocations {
             // remove junk rows
             sl = sl.filter({ StudentLocation in
                 StudentLocation.firstName.count > 0
             })
             
+            // uniqueness
+            var unique = [String: StudentLocation]()
+            
+            sl.forEach({ studentLocation in
+                unique[studentLocation.uniqueKey] = studentLocation
+            })
+            
+            sl = []
+            
+            for (_, studentLocation) in unique {
+                sl.append(studentLocation)
+            }
+                                       
+                                       
             // sort
             sl.sort { $0.firstName < $1.firstName }
             
             studentLocations = sl
         }
-       
     }
     
 }
