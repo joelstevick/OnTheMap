@@ -21,7 +21,10 @@ class State {
     }
     
     func setState(key: String, value: Any) {
-        
         state[key] = value
+    }
+    
+    func reset() {
+        state.removeAll()
     }
 }
