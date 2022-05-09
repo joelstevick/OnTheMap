@@ -102,7 +102,7 @@
 		753EBFAF2822ED8100C53403 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
-				753EBFF228288CFE00C53403 /* Extensions */,
+				753EBFF228288CFE00C53403 /* Class */,
 				753EBFDE2823496400C53403 /* Util */,
 				753EBFD92823233400C53403 /* Models */,
 				753EBFC5282312D700C53403 /* Services */,
@@ -172,12 +172,12 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		753EBFF228288CFE00C53403 /* Extensions */ = {
+		753EBFF228288CFE00C53403 /* Class */ = {
 			isa = PBXGroup;
 			children = (
 				753EBFF328288D4300C53403 /* MKPointAnnotationWithPrivateData.swift */,
 			);
-			path = Extensions;
+			path = Class;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
