@@ -40,9 +40,21 @@ class MapViewController: UIViewController, MKMapViewDelegate {
        
         signedInUserLocation = await UdacityApi.shared.getSignedInStudentLocation()
         
+        if var signedInUserLocation = signedInUserLocation {
+            studentLocations?.append(signedInUserLocation)
+            
+            // borrow so we can visualize
+            if let studentLocations = studentLocations{
+                let first = studentLocations[1]
+                signedInUserLocation.longitude = first.longitude
+                signedInUserLocation.latitude = first.latitude
+            }
+            
+        }
+        
     }
     
-    func makeAnnotation(_ studentLocation: StudentLocation) -> MKPointAnnotation {
+    func makeAnnotation(_ studentLocation: StudentLocation) -> MKPointAnnotationWithPrivateData {
         // Notice that the float values are being used to create CLLocationDegree values.
         // This is a version of the Double type.
         let lat = CLLocationDegrees(studentLocation.latitude)
@@ -61,12 +73,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         annotation.coordinate = coordinate
         annotation.title = "\(first) \(last)"
         annotation.subtitle = mediaURL
-        
+    
         return annotation
     }
     
     func loadMapView() async {
-        var annotations = [MKPointAnnotation]()
+        var annotations = [MKPointAnnotationWithPrivateData]()
         
         if let studentLocations = studentLocations {
             for studentLocation in studentLocations {
@@ -76,11 +88,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             
             // When the array is complete, we add the annotations to the map.
             self.mapView.addAnnotations(annotations)
-        }
-        
-        // add the signed in user
-        if let signedInUserLocation = signedInUserLocation {
-            annotations.append(makeAnnotation(signedInUserLocation))
         }
         
     }
@@ -103,6 +110,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             let annotationWithPrivateData = annotation as! MKPointAnnotationWithPrivateData
             
             pinView!.pinTintColor = annotationWithPrivateData.isSignedInUser ? .blue : .red
+            
+            if (annotationWithPrivateData.isSignedInUser) {
+                print("HERE 2")
+            }
                     
             pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }

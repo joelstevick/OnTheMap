@@ -8,13 +8,13 @@
 import Foundation
 
 struct StudentLocation: Codable {
-    let uniqueKey: String
-    let firstName: String
-    let lastName: String
-    let latitude: Double
-    let longitude: Double
-    let mapString: String
-    let mediaURL: String
+    var uniqueKey: String
+    var firstName: String
+    var lastName: String
+    var latitude: Double
+    var longitude: Double
+    var mapString: String
+    var mediaURL: String
 }
 
 struct StudentLocationResponse: Codable {
