@@ -12,6 +12,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
     // MARK: - Properties
     var studentLocations: [StudentLocation]?
+    var signedInUserLocation: StudentLocation?
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -28,7 +29,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         Task {
             await getStudentLocations()
             
-            loadMapView()
+            await loadMapView()
         }
     }
     
@@ -37,37 +38,49 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         studentLocations = await UdacityApi.shared.getStudentLocations()
        
+        signedInUserLocation = await UdacityApi.shared.getSignedInStudentLocation()
+        
     }
     
-    func loadMapView() {
+    func makeAnnotation(_ studentLocation: StudentLocation) -> MKPointAnnotation {
+        // Notice that the float values are being used to create CLLocationDegree values.
+        // This is a version of the Double type.
+        let lat = CLLocationDegrees(studentLocation.latitude)
+        let long = CLLocationDegrees(studentLocation.longitude)
+        
+        // The lat and long are used to create a CLLocationCoordinates2D instance.
+        let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        
+        let first = studentLocation.firstName
+        let last = studentLocation.lastName
+        let mediaURL = studentLocation.mediaURL
+        
+        // Here we create the annotation and set its coordiate, title, and subtitle properties
+        let annotation = MKPointAnnotationWithPrivateData(isSignedInUser: studentLocation.uniqueKey == signedInUserLocation?.uniqueKey)
+        
+        annotation.coordinate = coordinate
+        annotation.title = "\(first) \(last)"
+        annotation.subtitle = mediaURL
+        
+        return annotation
+    }
+    
+    func loadMapView() async {
         var annotations = [MKPointAnnotation]()
         
         if let studentLocations = studentLocations {
             for studentLocation in studentLocations {
-                // Notice that the float values are being used to create CLLocationDegree values.
-                // This is a version of the Double type.
-                let lat = CLLocationDegrees(studentLocation.latitude)
-                let long = CLLocationDegrees(studentLocation.longitude)
-                
-                // The lat and long are used to create a CLLocationCoordinates2D instance.
-                let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                
-                let first = studentLocation.firstName
-                let last = studentLocation.lastName
-                let mediaURL = studentLocation.mediaURL
-                
-                // Here we create the annotation and set its coordiate, title, and subtitle properties
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = coordinate
-                annotation.title = "\(first) \(last)"
-                annotation.subtitle = mediaURL
-                
-                // Finally we place the annotation in an array of annotations.
-                annotations.append(annotation)
+                // Place the annotation in an array of annotations.
+                annotations.append(makeAnnotation(studentLocation))
             }
             
             // When the array is complete, we add the annotations to the map.
             self.mapView.addAnnotations(annotations)
+        }
+        
+        // add the signed in user
+        if let signedInUserLocation = signedInUserLocation {
+            annotations.append(makeAnnotation(signedInUserLocation))
         }
         
     }
@@ -85,7 +98,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = true
-            pinView!.pinTintColor = .red
+            
+            // signed-in user gets blue pin
+            let annotationWithPrivateData = annotation as! MKPointAnnotationWithPrivateData
+            
+            pinView!.pinTintColor = annotationWithPrivateData.isSignedInUser ? .blue : .red
+                    
             pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
         else {

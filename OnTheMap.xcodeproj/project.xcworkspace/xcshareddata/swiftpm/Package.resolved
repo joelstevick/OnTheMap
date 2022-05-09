@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "nanoid",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ellliott/NanoID",
+      "state" : {
+        "branch" : "master",
+        "revision" : "4458cf4e42d02fb0628faec39bd2214a3cfc49b1"
+      }
+    }
+  ],
+  "version" : 2
+}

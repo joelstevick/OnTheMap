@@ -200,8 +200,6 @@ class UdacityApi {
             do {
                 let studentLocation = await getStudentLocation(uniqueKey)
                 
-                print(studentLocation)
-                
                 return studentLocation
             } catch  {
                 print("Could not get student location \(error)")
