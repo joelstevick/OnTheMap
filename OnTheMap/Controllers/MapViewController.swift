@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
-
+    
     // MARK: - Properties
     var studentLocations: [StudentLocation]?
     var signedInUserLocation: StudentLocation?
@@ -21,7 +21,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         
         mapView.delegate = self
-
+        
         // initialize navigation bar
         navigationItem.hidesBackButton = true
         
@@ -37,18 +37,16 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func getStudentLocations() async {
         
         studentLocations = await UdacityApi.shared.getStudentLocations()
-       
+        
         signedInUserLocation = await UdacityApi.shared.getSignedInStudentLocation()
         
         if var signedInUserLocation = signedInUserLocation {
-            studentLocations?.append(signedInUserLocation)
             
-            // borrow so we can visualize
-            if let studentLocations = studentLocations{
-                let first = studentLocations[1]
-                signedInUserLocation.longitude = first.longitude
-                signedInUserLocation.latitude = first.latitude
-            }
+            // hardwire location so we can visualize
+            signedInUserLocation.longitude = -94.578560
+            signedInUserLocation.latitude = 39.099789
+            
+            studentLocations?.append(signedInUserLocation)
             
         }
         
@@ -73,7 +71,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         annotation.coordinate = coordinate
         annotation.title = "\(first) \(last)"
         annotation.subtitle = mediaURL
-    
+        
         return annotation
     }
     
@@ -92,7 +90,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
     }
     // MARK: - MKMapViewDelegate
-
+    
     // Here we create a view with a "right callout accessory view". You might choose to look into other
     // decoration alternatives. Notice the similarity between this method and the cellForRowAtIndexPath
     // method in TableViewDataSource.
@@ -101,7 +99,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let reuseId = "pin"
         
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
-
+        
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = true
@@ -114,7 +112,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             if (annotationWithPrivateData.isSignedInUser) {
                 print("HERE 2")
             }
-                    
+            
             pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
         else {
@@ -123,7 +121,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         return pinView
     }
-
+    
     
     // This delegate method is implemented to respond to taps. It opens the system browser
     // to the URL specified in the annotationViews subtitle property.
