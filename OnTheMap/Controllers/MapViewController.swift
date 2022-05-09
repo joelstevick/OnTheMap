@@ -109,10 +109,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             
             pinView!.pinTintColor = annotationWithPrivateData.isSignedInUser ? .blue : .red
             
-            if (annotationWithPrivateData.isSignedInUser) {
-                print("HERE 2")
-            }
-            
             pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
         else {
