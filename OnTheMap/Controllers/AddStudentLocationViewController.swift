@@ -5,6 +5,14 @@
 //  Created by joel.stevick on 5/8/22.
 //
 
+// steps in the process
+
+enum Step: String {
+    case collectMapString
+    case collectLatLon
+    case collectMediaURL
+}
+
 import UIKit
 
 class AddStudentLocationViewController: UIViewController {
@@ -12,7 +20,9 @@ class AddStudentLocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // initialize state
+        State.shared.reset()
+        
     }
     
 
