@@ -28,7 +28,9 @@ class AddStudentLocationViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-
-   
-
+    // MARK: - Actions
+    @IBAction func cancelBtnPressed(_ sender: Any) {
+        
+        dismiss(animated: true)
+    }
 }
