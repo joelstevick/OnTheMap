@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class CollectLatLonViewController: UIViewController {
+class LatLonViewController: UIViewController {
 
     // MARK: - Properties
     

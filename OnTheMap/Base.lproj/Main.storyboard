@@ -239,7 +239,7 @@
         <!--My Location-->
         <scene sceneID="3CB-Q3-Tc0">
             <objects>
-                <viewController id="aUh-eb-uN8" customClass="CollectLatLonViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aUh-eb-uN8" customClass="LatLonViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pAI-L0-qi8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
