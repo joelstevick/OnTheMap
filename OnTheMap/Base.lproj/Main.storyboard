@@ -445,7 +445,13 @@
                         <viewLayoutGuide key="safeArea" id="leE-Gb-6li"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="My Link " id="nEC-dW-58H"/>
+                    <navigationItem key="navigationItem" title="My Link " id="nEC-dW-58H">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;&lt; Back" id="vGm-Iv-uTZ">
+                            <connections>
+                                <action selector="backBtnPressed:" destination="bTE-fs-ptS" id="ENP-SN-WJS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eda-eV-0Bc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
