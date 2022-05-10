@@ -29,6 +29,7 @@
 		75D3EFC52829DE6B008932EE /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D3EFC42829DE6B008932EE /* State.swift */; };
 		75D3EFC8282A5E53008932EE /* CollectLatLonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D3EFC7282A5E53008932EE /* CollectLatLonViewController.swift */; };
 		75D3EFCA282A7134008932EE /* MyLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D3EFC9282A7134008932EE /* MyLinkViewController.swift */; };
+		75D3EFCC282AA60D008932EE /* PutStudentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D3EFCB282AA60D008932EE /* PutStudentResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		75D3EFC42829DE6B008932EE /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		75D3EFC7282A5E53008932EE /* CollectLatLonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectLatLonViewController.swift; sourceTree = "<group>"; };
 		75D3EFC9282A7134008932EE /* MyLinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLinkViewController.swift; sourceTree = "<group>"; };
+		75D3EFCB282AA60D008932EE /* PutStudentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutStudentResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 				753EBFDC282348E200C53403 /* SignInRequest.swift */,
 				753EBFE32825E72200C53403 /* StudentLocationResponse.swift */,
 				753EBFF028287E1A00C53403 /* CreateStudentLocationResponse.swift */,
+				75D3EFCB282AA60D008932EE /* PutStudentResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				753EBFDB2823235F00C53403 /* SignInResponse.swift in Sources */,
 				75D3EFC52829DE6B008932EE /* State.swift in Sources */,
 				753EBFB52822ED8100C53403 /* LoginViewController.swift in Sources */,
+				75D3EFCC282AA60D008932EE /* PutStudentResponse.swift in Sources */,
 				753EBFB12822ED8100C53403 /* AppDelegate.swift in Sources */,
 				753EBFB32822ED8100C53403 /* SceneDelegate.swift in Sources */,
 				753EBFE42825E72200C53403 /* StudentLocationResponse.swift in Sources */,

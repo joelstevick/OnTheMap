@@ -97,6 +97,26 @@ class UdacityApi {
             return .failure(.NetworkError(description: "Unknown error"))
         }
     }
+    private func put< T: Encodable, ResponseType: Decodable>
+    (url: UdacityUrl, body: T,responseType: ResponseType.Type, parameter: String) async ->
+    Result<ResponseType, UdacityApiError> {
+        do {
+            let decoder = JSONDecoder()
+            
+            var request = try buildPostRequest(url: "\(url.rawValue)/\(parameter)", body: body)
+            request.httpMethod = "PUT"
+           
+            // send the request over the wire
+            let session = URLSession.shared
+            let (data, _) =  try await session.data(for: request as URLRequest)
+        
+            return .success(try decoder.decode(ResponseType.self, from: data))
+            
+        } catch {
+            print("ERROR", error)
+            return .failure(.NetworkError(description: "Unknown error"))
+        }
+    }
     
     // MARK: - Api
     func signin(username: String, password: String) async -> String? {
@@ -185,13 +205,22 @@ class UdacityApi {
     func setSignedInStudentLocation(_ studentLocation: StudentLocation) async {
         defaults.set(studentLocation.uniqueKey, forKey: "uniqueKey")
         
-        let result = await post(url: UdacityUrl.createStudentLocation, body: studentLocation, applyTransform: false, responseType: CreateStudentResponse.self)
+        let result = await put(url: UdacityUrl.createStudentLocation, body: studentLocation, responseType: PutStudentResponse.self, parameter: studentLocation.uniqueKey)
         
         switch result {
-        case .success(let response):
-            print ("Created OK ", response.objectId)
-        case .failure(let error) :
-            print ("Created Failed", error.localizedDescription)
+        case .success(_):
+            print ("PUT OK ")
+        case .failure(_) :
+            // put failed, try create
+            let result2 = await post(url: UdacityUrl.createStudentLocation, body: studentLocation, applyTransform: false, responseType: CreateStudentResponse.self)
+            
+            switch result2 {
+            case .success(let response):
+                print ("POST OK ")
+            case .failure(let error) :
+                // try create
+                print ("POSt Failed", error.localizedDescription)
+            }
         }
         
     }
