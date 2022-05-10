@@ -438,12 +438,29 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="EBP-nA-5Zp"/>
-                                    <barButtonItem title="Save" id="ph7-3k-Hf3"/>
+                                    <barButtonItem title="Save" id="ph7-3k-Hf3">
+                                        <connections>
+                                            <action selector="saveBtnPressed:" destination="bTE-fs-ptS" id="7f7-Ea-DOD"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter link to share" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bqi-8s-mpH">
+                                <rect key="frame" x="40" y="404" width="334" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="vdp-K6-66y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="leE-Gb-6li"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bqi-8s-mpH" firstAttribute="leading" secondItem="leE-Gb-6li" secondAttribute="leading" constant="40" id="X4P-Bk-uZ8"/>
+                            <constraint firstItem="bqi-8s-mpH" firstAttribute="centerY" secondItem="FIQ-Ok-O3m" secondAttribute="centerY" id="Z55-r9-eud"/>
+                            <constraint firstItem="leE-Gb-6li" firstAttribute="trailing" secondItem="bqi-8s-mpH" secondAttribute="trailing" constant="40" id="j6X-aV-ddz"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Link " id="nEC-dW-58H">
                         <barButtonItem key="leftBarButtonItem" title="&lt;&lt; Back" id="vGm-Iv-uTZ">
@@ -452,6 +469,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="myLink" destination="bqi-8s-mpH" id="ygk-1J-S3B"/>
+                        <outlet property="saveBtn" destination="ph7-3k-Hf3" id="ANm-Wq-W5T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eda-eV-0Bc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
