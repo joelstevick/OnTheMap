@@ -187,49 +187,46 @@
                                     <action selector="textViewDidChange:" destination="mCE-qa-9yo" eventType="editingChanged" id="bLr-Ew-PI0"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQo-aX-6VG">
-                                <rect key="frame" x="-11.5" y="801" width="103.5" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Continue &gt;&gt;"/>
-                                <connections>
-                                    <action selector="continueBtnPressed:" destination="mCE-qa-9yo" eventType="touchUpInside" id="ck8-k8-tuA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAi-ZD-fbs">
-                                <rect key="frame" x="40" y="801" width="69" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancelBtnPressed:" destination="mCE-qa-9yo" eventType="touchUpInside" id="Z8V-ye-ARg"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unrecognized Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IrS-UU-1jZ">
                                 <rect key="frame" x="-32" y="468" width="176" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i9N-Ud-0kb">
+                                <rect key="frame" x="0.0" y="764" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Cancel" id="njI-38-iOG">
+                                        <connections>
+                                            <action selector="cancelBtnPressed:" destination="mCE-qa-9yo" id="644-5e-Nne"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BFw-f6-Ixl"/>
+                                    <barButtonItem title="Continue" id="mEP-pP-zn7">
+                                        <connections>
+                                            <action selector="continueBtnPressed:" destination="mCE-qa-9yo" id="c51-Aj-cPB"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CEG-Pg-CZF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="tQo-aX-6VG" firstAttribute="trailing" secondItem="CEG-Pg-CZF" secondAttribute="trailing" constant="-20" id="6xs-QF-3Jl"/>
                             <constraint firstItem="wE6-ga-Eil" firstAttribute="top" secondItem="jpM-GH-SoT" secondAttribute="bottom" constant="58" id="AQX-Id-GeE"/>
-                            <constraint firstItem="tQo-aX-6VG" firstAttribute="bottom" secondItem="CEG-Pg-CZF" secondAttribute="bottom" constant="-10" id="EOf-fZ-Qky"/>
                             <constraint firstItem="IrS-UU-1jZ" firstAttribute="centerX" secondItem="CEG-Pg-CZF" secondAttribute="centerX" id="IsH-Qc-MLD"/>
                             <constraint firstItem="jpM-GH-SoT" firstAttribute="centerX" secondItem="ACB-4Z-wKA" secondAttribute="centerX" id="O70-PF-nqN"/>
                             <constraint firstItem="IrS-UU-1jZ" firstAttribute="top" secondItem="jpM-GH-SoT" secondAttribute="bottom" constant="35" id="R8x-zf-1j0"/>
-                            <constraint firstItem="uAi-ZD-fbs" firstAttribute="bottom" secondItem="CEG-Pg-CZF" secondAttribute="bottom" constant="-10" id="VrE-d4-QRG"/>
                             <constraint firstItem="jpM-GH-SoT" firstAttribute="centerY" secondItem="ACB-4Z-wKA" secondAttribute="centerY" id="flO-Ce-u8T"/>
                             <constraint firstItem="wE6-ga-Eil" firstAttribute="leading" secondItem="CEG-Pg-CZF" secondAttribute="trailing" constant="-40" id="gPZ-K4-Ha9"/>
                             <constraint firstItem="wE6-ga-Eil" firstAttribute="leading" secondItem="CEG-Pg-CZF" secondAttribute="leading" constant="40" id="nNY-Dp-Rrt"/>
                             <constraint firstItem="CEG-Pg-CZF" firstAttribute="trailing" secondItem="wE6-ga-Eil" secondAttribute="trailing" constant="40" id="ov1-kt-f7l"/>
-                            <constraint firstItem="uAi-ZD-fbs" firstAttribute="leading" secondItem="CEG-Pg-CZF" secondAttribute="leading" constant="40" id="wdT-Ts-Ffo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add My Location" id="vac-XU-O7R"/>
                     <connections>
-                        <outlet property="continueBtn" destination="tQo-aX-6VG" id="mOB-PG-eoD"/>
+                        <outlet property="continueBtn" destination="mEP-pP-zn7" id="x6Z-ce-cbl"/>
                         <outlet property="textField" destination="wE6-ga-Eil" id="fQS-ZN-inp"/>
                         <outlet property="unrecognizedLocation" destination="IrS-UU-1jZ" id="eX9-Dm-gFi"/>
                         <segue destination="Sfu-9a-Pik" kind="presentation" identifier="CollectLatLon" id="PVE-CJ-C5F"/>

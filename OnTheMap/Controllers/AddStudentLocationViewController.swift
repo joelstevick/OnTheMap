@@ -24,8 +24,8 @@ class AddStudentLocationViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Properties
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var continueBtn: UIButton!
     @IBOutlet weak var unrecognizedLocation: UILabel!
+    @IBOutlet weak var continueBtn: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
