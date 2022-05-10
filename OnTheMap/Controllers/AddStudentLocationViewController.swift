@@ -15,6 +15,11 @@ enum Step: String {
 
 import UIKit
 
+enum StateKey: String {
+    case mapString
+    case coordinates
+    case mediaURL
+}
 class AddStudentLocationViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Properties
@@ -26,24 +31,41 @@ class AddStudentLocationViewController: UIViewController, UITextFieldDelegate {
         
         textField.delegate = self
         
-        continueBtn.isEnabled = false
-        
         // initialize step-state
         State.shared.reset()
         
+        update()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // restore state
+        if let mapString = State.shared.getState(key: StateKey.mapString.rawValue) {
+            textField.text = mapString as? String
+        }
+        
+        update()
     }
     
     // MARK: - Textfield delegate
     @IBAction func textViewDidChange(_ textField: UITextField) {
+        update()
+    }
+    // MARK: - Actions
+    @IBAction func continueBtnPressed(_ sender: Any) {
+        State.shared.setState(key: StateKey.mapString.rawValue, value: textField.text!.trimmingCharacters(in: CharacterSet.whitespaces))
+    }
+    @IBAction func cancelBtnPressed(_ sender: Any) {
+        
+        dismiss(animated: true)
+    }
+    
+    // MARK: - Utility methods
+    func update() {
         if let text = textField.text {
             continueBtn.isEnabled = text.trimmingCharacters(in: CharacterSet.whitespaces).count > 0
         } else {
             continueBtn.isEnabled = false
         }
-    }
-    // MARK: - Actions
-    @IBAction func cancelBtnPressed(_ sender: Any) {
-        
-        dismiss(animated: true)
     }
 }
