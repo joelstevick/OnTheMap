@@ -15,7 +15,7 @@ class MyLinkViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,11 +36,10 @@ class MyLinkViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - UITextFieldDelegate
-    @IBAction func textViewDidChange(_ textField: UITextField) {
+    @IBAction func myLinkChanged(_ sender: Any) {
         persist()
     
         update()
-        
     }
     
     // MARK: - Utility methods

@@ -452,6 +452,10 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="myLinkChanged:" destination="bTE-fs-ptS" eventType="editingChanged" id="bFK-EM-0WA"/>
+                                    <outlet property="delegate" destination="FIQ-Ok-O3m" id="aWt-vs-koY"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="leE-Gb-6li"/>
