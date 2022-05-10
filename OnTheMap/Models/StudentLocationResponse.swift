@@ -8,7 +8,7 @@
 import Foundation
 
 struct StudentLocation: Codable {
-    var uniqueKey: String
+    var uniqueKey: String?
     var firstName: String
     var lastName: String
     var latitude: Double

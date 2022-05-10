@@ -165,7 +165,7 @@ class UdacityApi {
             var unique = [String: StudentLocation]()
             
             sl.forEach({ studentLocation in
-                unique[studentLocation.uniqueKey] = studentLocation
+                unique[studentLocation.uniqueKey!] = studentLocation
             })
             
             sl = []
@@ -203,28 +203,37 @@ class UdacityApi {
         }
     }
     
+    func persistSignedInStudentLocationUniqueKey(_ uniqueKey: String) {
+        defaults.set(uniqueKey, forKey: "uniqueKey")
+    }
     func setSignedInStudentLocation(_ studentLocation: StudentLocation) async {
         
-        
-        defaults.set(studentLocation.uniqueKey, forKey: "uniqueKey")
-        
-        let result = await put(url: UdacityUrl.createStudentLocation, body: studentLocation, responseType: PutStudentResponse.self, parameter: studentLocation.uniqueKey)
-        
-        switch result {
-        case .success(_):
-            print ("PUT OK ")
-        case .failure(_) :
-            // put failed, try create
-            let result2 = await post(url: UdacityUrl.createStudentLocation, body: studentLocation, applyTransform: false, responseType: CreateStudentResponse.self)
+        if let uniqueKey = studentLocation.uniqueKey {
+            // PUT existing
+            persistSignedInStudentLocationUniqueKey(uniqueKey)
             
-            switch result2 {
+            let result = await put(url: UdacityUrl.createStudentLocation, body: studentLocation, responseType: PutStudentResponse.self, parameter: uniqueKey)
+            switch result {
             case .success(_):
+                print ("PUT OK ")
+            case .failure(let error) :
+                // create failed
+                print ("PUT Failed", error.localizedDescription)
+            }
+        } else {
+            // POST to create
+            let result = await post(url: UdacityUrl.createStudentLocation, body: studentLocation, applyTransform: false, responseType: CreateStudentResponse.self)
+            
+            switch result {
+            case .success(let response):
+                persistSignedInStudentLocationUniqueKey(response.objectId)
                 print ("POST OK ")
             case .failure(let error) :
-                // try create
+                // create failed
                 print ("POST Failed", error.localizedDescription)
             }
         }
+    
         
     }
     func getSignedInStudentLocation() async -> StudentLocation? {
