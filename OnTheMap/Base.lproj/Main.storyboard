@@ -171,35 +171,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you studying today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpM-GH-SoT">
-                                <rect key="frame" x="71.5" y="409" width="271" height="24"/>
+                                <rect key="frame" x="-79.5" y="409" width="271" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wE6-ga-Eil">
-                                <rect key="frame" x="374" y="491" width="0.0" height="34"/>
+                                <rect key="frame" x="40" y="491" width="32" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="oZW-ss-ESd"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQo-aX-6VG">
-                                <rect key="frame" x="300.5" y="771" width="103.5" height="31"/>
+                                <rect key="frame" x="-11.5" y="801" width="103.5" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Continue &gt;&gt;"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAi-ZD-fbs">
+                                <rect key="frame" x="40" y="801" width="69" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CEG-Pg-CZF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="tQo-aX-6VG" firstAttribute="trailing" secondItem="CEG-Pg-CZF" secondAttribute="trailing" constant="-10" id="6xs-QF-3Jl"/>
+                            <constraint firstItem="tQo-aX-6VG" firstAttribute="trailing" secondItem="CEG-Pg-CZF" secondAttribute="trailing" constant="-20" id="6xs-QF-3Jl"/>
                             <constraint firstItem="wE6-ga-Eil" firstAttribute="top" secondItem="jpM-GH-SoT" secondAttribute="bottom" constant="58" id="AQX-Id-GeE"/>
-                            <constraint firstItem="CEG-Pg-CZF" firstAttribute="bottom" secondItem="tQo-aX-6VG" secondAttribute="bottom" constant="40" id="EOf-fZ-Qky"/>
+                            <constraint firstItem="tQo-aX-6VG" firstAttribute="bottom" secondItem="CEG-Pg-CZF" secondAttribute="bottom" constant="-10" id="EOf-fZ-Qky"/>
                             <constraint firstItem="jpM-GH-SoT" firstAttribute="centerX" secondItem="ACB-4Z-wKA" secondAttribute="centerX" id="O70-PF-nqN"/>
+                            <constraint firstItem="uAi-ZD-fbs" firstAttribute="bottom" secondItem="CEG-Pg-CZF" secondAttribute="bottom" constant="-10" id="VrE-d4-QRG"/>
                             <constraint firstItem="jpM-GH-SoT" firstAttribute="centerY" secondItem="ACB-4Z-wKA" secondAttribute="centerY" id="flO-Ce-u8T"/>
                             <constraint firstItem="wE6-ga-Eil" firstAttribute="leading" secondItem="CEG-Pg-CZF" secondAttribute="trailing" constant="-40" id="gPZ-K4-Ha9"/>
+                            <constraint firstItem="wE6-ga-Eil" firstAttribute="leading" secondItem="CEG-Pg-CZF" secondAttribute="leading" constant="40" id="nNY-Dp-Rrt"/>
                             <constraint firstItem="CEG-Pg-CZF" firstAttribute="trailing" secondItem="wE6-ga-Eil" secondAttribute="trailing" constant="40" id="ov1-kt-f7l"/>
+                            <constraint firstItem="uAi-ZD-fbs" firstAttribute="leading" secondItem="CEG-Pg-CZF" secondAttribute="leading" constant="40" id="wdT-Ts-Ffo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add My Location" id="vac-XU-O7R"/>
+                    <connections>
+                        <outlet property="textField" destination="wE6-ga-Eil" id="fQS-ZN-inp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PBx-7Q-dnU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
