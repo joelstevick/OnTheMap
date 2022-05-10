@@ -457,12 +457,17 @@
                                     <outlet property="delegate" destination="FIQ-Ok-O3m" id="aWt-vs-koY"/>
                                 </connections>
                             </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="6Ef-mJ-a3y">
+                                <rect key="frame" x="188.5" y="504" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="leE-Gb-6li"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bqi-8s-mpH" firstAttribute="leading" secondItem="leE-Gb-6li" secondAttribute="leading" constant="40" id="X4P-Bk-uZ8"/>
                             <constraint firstItem="bqi-8s-mpH" firstAttribute="centerY" secondItem="FIQ-Ok-O3m" secondAttribute="centerY" id="Z55-r9-eud"/>
+                            <constraint firstItem="6Ef-mJ-a3y" firstAttribute="top" secondItem="bqi-8s-mpH" secondAttribute="bottom" constant="66" id="axS-EL-aql"/>
+                            <constraint firstItem="6Ef-mJ-a3y" firstAttribute="centerX" secondItem="FIQ-Ok-O3m" secondAttribute="centerX" id="df2-vi-0aw"/>
                             <constraint firstItem="leE-Gb-6li" firstAttribute="trailing" secondItem="bqi-8s-mpH" secondAttribute="trailing" constant="40" id="j6X-aV-ddz"/>
                         </constraints>
                     </view>
@@ -474,6 +479,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activity" destination="6Ef-mJ-a3y" id="BNI-4a-m73"/>
                         <outlet property="myLink" destination="bqi-8s-mpH" id="ygk-1J-S3B"/>
                         <outlet property="saveBtn" destination="ph7-3k-Hf3" id="ANm-Wq-W5T"/>
                     </connections>

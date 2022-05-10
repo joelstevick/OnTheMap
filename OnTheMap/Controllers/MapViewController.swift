@@ -41,12 +41,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         signedInUserLocation = await UdacityApi.shared.getSignedInStudentLocation()
         
         if var signedInUserLocation = signedInUserLocation {
+    
             
-            // hardwire location so we can visualize
-            signedInUserLocation.longitude = -94.578560
-            signedInUserLocation.latitude = 39.099789
-            
-            studentLocations?.append(signedInUserLocation)
+            if (signedInUserLocation.longitude != nil && signedInUserLocation.latitude != nil ) {
+                studentLocations?.append(signedInUserLocation)
+            }
             
         }
         
