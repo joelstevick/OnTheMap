@@ -53,7 +53,12 @@ class AddStudentLocationViewController: UIViewController, UITextFieldDelegate {
     }
     // MARK: - Actions
     @IBAction func continueBtnPressed(_ sender: Any) {
+        // persist state
         State.shared.setState(key: StateKey.mapString.rawValue, value: textField.text!.trimmingCharacters(in: CharacterSet.whitespaces))
+        
+        // next step
+        performSegue(withIdentifier: "CollectLatLon", sender: self)
+        
     }
     @IBAction func cancelBtnPressed(_ sender: Any) {
         

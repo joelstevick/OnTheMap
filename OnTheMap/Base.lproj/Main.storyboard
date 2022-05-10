@@ -223,11 +223,27 @@
                     <connections>
                         <outlet property="continueBtn" destination="tQo-aX-6VG" id="mOB-PG-eoD"/>
                         <outlet property="textField" destination="wE6-ga-Eil" id="fQS-ZN-inp"/>
+                        <segue destination="aUh-eb-uN8" kind="presentation" identifier="CollectLatLon" id="PVE-CJ-C5F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PBx-7Q-dnU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4250.7246376811599" y="-928.125"/>
+            <point key="canvasLocation" x="4207" y="-928"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="3CB-Q3-Tc0">
+            <objects>
+                <viewController id="aUh-eb-uN8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pAI-L0-qi8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="gN0-nD-Dfk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eCe-kR-Uyi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5062" y="-919"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PKa-CY-U1j">
