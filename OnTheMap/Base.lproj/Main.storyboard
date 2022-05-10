@@ -203,6 +203,12 @@
                                     <action selector="cancelBtnPressed:" destination="mCE-qa-9yo" eventType="touchUpInside" id="Z8V-ye-ARg"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unrecognized Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IrS-UU-1jZ">
+                                <rect key="frame" x="-32" y="473" width="176" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CEG-Pg-CZF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -210,7 +216,9 @@
                             <constraint firstItem="tQo-aX-6VG" firstAttribute="trailing" secondItem="CEG-Pg-CZF" secondAttribute="trailing" constant="-20" id="6xs-QF-3Jl"/>
                             <constraint firstItem="wE6-ga-Eil" firstAttribute="top" secondItem="jpM-GH-SoT" secondAttribute="bottom" constant="58" id="AQX-Id-GeE"/>
                             <constraint firstItem="tQo-aX-6VG" firstAttribute="bottom" secondItem="CEG-Pg-CZF" secondAttribute="bottom" constant="-10" id="EOf-fZ-Qky"/>
+                            <constraint firstItem="IrS-UU-1jZ" firstAttribute="centerX" secondItem="CEG-Pg-CZF" secondAttribute="centerX" id="IsH-Qc-MLD"/>
                             <constraint firstItem="jpM-GH-SoT" firstAttribute="centerX" secondItem="ACB-4Z-wKA" secondAttribute="centerX" id="O70-PF-nqN"/>
+                            <constraint firstItem="IrS-UU-1jZ" firstAttribute="top" secondItem="jpM-GH-SoT" secondAttribute="bottom" constant="40" id="R8x-zf-1j0"/>
                             <constraint firstItem="uAi-ZD-fbs" firstAttribute="bottom" secondItem="CEG-Pg-CZF" secondAttribute="bottom" constant="-10" id="VrE-d4-QRG"/>
                             <constraint firstItem="jpM-GH-SoT" firstAttribute="centerY" secondItem="ACB-4Z-wKA" secondAttribute="centerY" id="flO-Ce-u8T"/>
                             <constraint firstItem="wE6-ga-Eil" firstAttribute="leading" secondItem="CEG-Pg-CZF" secondAttribute="trailing" constant="-40" id="gPZ-K4-Ha9"/>
@@ -223,6 +231,7 @@
                     <connections>
                         <outlet property="continueBtn" destination="tQo-aX-6VG" id="mOB-PG-eoD"/>
                         <outlet property="textField" destination="wE6-ga-Eil" id="fQS-ZN-inp"/>
+                        <outlet property="unrecognizedLocation" destination="IrS-UU-1jZ" id="eX9-Dm-gFi"/>
                         <segue destination="Sfu-9a-Pik" kind="presentation" identifier="CollectLatLon" id="PVE-CJ-C5F"/>
                     </connections>
                 </viewController>
@@ -407,6 +416,9 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

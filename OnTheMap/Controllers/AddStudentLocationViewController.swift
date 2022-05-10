@@ -25,11 +25,13 @@ class AddStudentLocationViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Properties
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var continueBtn: UIButton!
+    @IBOutlet weak var unrecognizedLocation: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         textField.delegate = self
+        unrecognizedLocation.isHidden = true
         
         // initialize step-state
         State.shared.reset()
@@ -49,6 +51,8 @@ class AddStudentLocationViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Textfield delegate
     @IBAction func textViewDidChange(_ textField: UITextField) {
+        unrecognizedLocation.isHidden = true
+        
         update()
     }
     // MARK: - Actions
@@ -63,6 +67,7 @@ class AddStudentLocationViewController: UIViewController, UITextFieldDelegate {
                 let location = placemarks.first?.location
             else {
                 // handle no location found
+                self.unrecognizedLocation.isHidden = false
                 return
             }
             
