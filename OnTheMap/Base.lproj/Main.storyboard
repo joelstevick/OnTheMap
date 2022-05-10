@@ -203,7 +203,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="BFw-f6-Ixl"/>
-                                    <barButtonItem title="Continue" id="mEP-pP-zn7">
+                                    <barButtonItem title="Continue &gt;&gt;" id="mEP-pP-zn7">
                                         <connections>
                                             <action selector="continueBtnPressed:" destination="mCE-qa-9yo" id="c51-Aj-cPB"/>
                                         </connections>
@@ -281,7 +281,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="V4O-Sn-E9C" id="2qK-cE-49J"/>
-                        <segue destination="bTE-fs-ptS" kind="presentation" identifier="CollectMediaURL" id="t5D-sG-U9W"/>
+                        <segue destination="3cq-TK-GRt" kind="presentation" identifier="CollectMediaURL" id="t5D-sG-U9W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCe-kR-Uyi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -425,20 +425,49 @@
             </objects>
             <point key="canvasLocation" x="5060.8695652173919" y="-919.41964285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--My Link -->
         <scene sceneID="iBs-HD-k9e">
             <objects>
-                <viewController id="bTE-fs-ptS" sceneMemberID="viewController">
+                <viewController id="bTE-fs-ptS" customClass="MyLinkViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FIQ-Ok-O3m">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EgN-KM-Im5">
+                                <rect key="frame" x="0.0" y="764" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="EBP-nA-5Zp"/>
+                                    <barButtonItem title="Save" id="ph7-3k-Hf3"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="leE-Gb-6li"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="My Link " id="nEC-dW-58H"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eda-eV-0Bc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6835" y="-913"/>
+            <point key="canvasLocation" x="7744.9275362318849" y="-913.39285714285711"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ftm-Gb-YhG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3cq-TK-GRt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ysG-Xc-FX5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bTE-fs-ptS" kind="relationship" relationship="rootViewController" id="3uD-vv-g1w"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WHK-Je-6Iu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6834.7826086956529" y="-913.39285714285711"/>
         </scene>
     </scenes>
     <resources>
