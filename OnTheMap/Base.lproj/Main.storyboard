@@ -440,7 +440,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="EBP-nA-5Zp"/>
                                     <barButtonItem title="Save" id="ph7-3k-Hf3">
                                         <connections>
-                                            <action selector="saveBtnPressed:" destination="bTE-fs-ptS" id="7f7-Ea-DOD"/>
+                                            <action selector="saveBtnPress:" destination="bTE-fs-ptS" id="6Dg-63-Nt1"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
