@@ -17,7 +17,7 @@ enum Step: String {
 
 enum StateKey: String {
     case mapString
-    case coordinates
+    case coordinate
     case mediaURL
 }
 class AddStudentLocationViewController: UIViewController, UITextFieldDelegate {
@@ -73,7 +73,7 @@ class AddStudentLocationViewController: UIViewController, UITextFieldDelegate {
             
             // persist state
             State.shared.setState(key: StateKey.mapString.rawValue, value: mapString)
-            State.shared.setState(key: StateKey.coordinates.rawValue, value: location.coordinate)
+            State.shared.setState(key: StateKey.coordinate.rawValue, value: location.coordinate)
             
             // next step
             self.performSegue(withIdentifier: "CollectLatLon", sender: self)
