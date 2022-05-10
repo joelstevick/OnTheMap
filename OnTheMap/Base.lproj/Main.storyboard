@@ -223,27 +223,34 @@
                     <connections>
                         <outlet property="continueBtn" destination="tQo-aX-6VG" id="mOB-PG-eoD"/>
                         <outlet property="textField" destination="wE6-ga-Eil" id="fQS-ZN-inp"/>
-                        <segue destination="aUh-eb-uN8" kind="presentation" identifier="CollectLatLon" id="PVE-CJ-C5F"/>
+                        <segue destination="Sfu-9a-Pik" kind="presentation" identifier="CollectLatLon" id="PVE-CJ-C5F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PBx-7Q-dnU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4207" y="-928"/>
         </scene>
-        <!--View Controller-->
+        <!--My Location-->
         <scene sceneID="3CB-Q3-Tc0">
             <objects>
-                <viewController id="aUh-eb-uN8" sceneMemberID="viewController">
+                <viewController id="aUh-eb-uN8" customClass="CollectLatLonViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pAI-L0-qi8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="gN0-nD-Dfk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="My Location" id="8Gu-JA-o8R">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;&lt; Back" id="REp-1y-4pf">
+                            <connections>
+                                <action selector="backBtnPressed:" destination="aUh-eb-uN8" id="gt4-Xl-aLt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCe-kR-Uyi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5062" y="-919"/>
+            <point key="canvasLocation" x="5971.0144927536239" y="-919.41964285714278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PKa-CY-U1j">
@@ -363,6 +370,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PvK-F4-I6b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3340.579710144928" y="-928.125"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YMD-ie-sa0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sfu-9a-Pik" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2oU-ez-gZ5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aUh-eb-uN8" kind="relationship" relationship="rootViewController" id="Q47-5L-tIL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z6A-9n-PdU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5060.8695652173919" y="-919.41964285714278"/>
         </scene>
     </scenes>
     <resources>

@@ -27,6 +27,7 @@
 		753EBFF128287E1A00C53403 /* CreateStudentLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFF028287E1A00C53403 /* CreateStudentLocationResponse.swift */; };
 		753EBFF428288D4300C53403 /* MKPointAnnotationWithPrivateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFF328288D4300C53403 /* MKPointAnnotationWithPrivateData.swift */; };
 		75D3EFC52829DE6B008932EE /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D3EFC42829DE6B008932EE /* State.swift */; };
+		75D3EFC8282A5E53008932EE /* CollectLatLonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D3EFC7282A5E53008932EE /* CollectLatLonViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		753EBFF028287E1A00C53403 /* CreateStudentLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStudentLocationResponse.swift; sourceTree = "<group>"; };
 		753EBFF328288D4300C53403 /* MKPointAnnotationWithPrivateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKPointAnnotationWithPrivateData.swift; sourceTree = "<group>"; };
 		75D3EFC42829DE6B008932EE /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		75D3EFC7282A5E53008932EE /* CollectLatLonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectLatLonViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				753EBFE528273DCC00C53403 /* TabBarController.swift */,
 				753EBFE728273F3700C53403 /* TableViewController.swift */,
 				753EBFE9282841F100C53403 /* AddStudentLocationViewController.swift */,
+				75D3EFC7282A5E53008932EE /* CollectLatLonViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				753EBFE02823497A00C53403 /* GetEnvVar.swift in Sources */,
+				75D3EFC8282A5E53008932EE /* CollectLatLonViewController.swift in Sources */,
 				753EBFF428288D4300C53403 /* MKPointAnnotationWithPrivateData.swift in Sources */,
 				753EBFEA282841F100C53403 /* AddStudentLocationViewController.swift in Sources */,
 				753EBFC72823132000C53403 /* UdacityApi.swift in Sources */,
