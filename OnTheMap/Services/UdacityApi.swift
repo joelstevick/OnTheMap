@@ -204,7 +204,7 @@ class UdacityApi {
     
     func setSignedInStudentLocation(_ studentLocation: StudentLocation) async {
         
-        // first try PUT, since the record may already exist.  Otherwise, create it using POST
+        
         defaults.set(studentLocation.uniqueKey, forKey: "uniqueKey")
         
         let result = await put(url: UdacityUrl.createStudentLocation, body: studentLocation, responseType: PutStudentResponse.self, parameter: studentLocation.uniqueKey)
@@ -215,9 +215,9 @@ class UdacityApi {
         case .failure(_) :
             // put failed, try create
             let result2 = await post(url: UdacityUrl.createStudentLocation, body: studentLocation, applyTransform: false, responseType: CreateStudentResponse.self)
-            _
+            
             switch result2 {
-            case .success(let response):
+            case .success(_):
                 print ("POST OK ")
             case .failure(let error) :
                 // try create
