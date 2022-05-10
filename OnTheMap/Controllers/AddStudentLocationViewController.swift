@@ -6,14 +6,14 @@
 //
 
 // steps in the process
+import UIKit
+import CoreLocation
 
 enum Step: String {
     case collectMapString
     case collectLatLon
     case collectMediaURL
 }
-
-import UIKit
 
 enum StateKey: String {
     case mapString
@@ -53,11 +53,27 @@ class AddStudentLocationViewController: UIViewController, UITextFieldDelegate {
     }
     // MARK: - Actions
     @IBAction func continueBtnPressed(_ sender: Any) {
-        // persist state
-        State.shared.setState(key: StateKey.mapString.rawValue, value: textField.text!.trimmingCharacters(in: CharacterSet.whitespaces))
+        // convert mapString to coords
+        let mapString = textField.text!.trimmingCharacters(in: CharacterSet.whitespaces)
         
-        // next step
-        performSegue(withIdentifier: "CollectLatLon", sender: self)
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(mapString) { (placemarks, error) in
+            guard
+                let placemarks = placemarks,
+                let location = placemarks.first?.location
+            else {
+                // handle no location found
+                return
+            }
+            
+            // persist state
+            State.shared.setState(key: StateKey.mapString.rawValue, value: mapString)
+            State.shared.setState(key: StateKey.coordinates.rawValue, value: location.coordinate)
+            
+            // next step
+            self.performSegue(withIdentifier: "CollectLatLon", sender: self)
+        }
+        
         
     }
     @IBAction func cancelBtnPressed(_ sender: Any) {

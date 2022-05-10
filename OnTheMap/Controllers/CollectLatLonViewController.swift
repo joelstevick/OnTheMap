@@ -6,17 +6,16 @@
 //
 
 import UIKit
+import CoreLocation
 
 class CollectLatLonViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
     // MARK: - Actions
-    
     @IBAction func backBtnPressed(_ sender: Any) {
         dismiss(animated: true)
     }
