@@ -81,12 +81,12 @@ class UdacityApi {
             let session = URLSession.shared
             let (data, _) =  try await session.data(for: request as URLRequest)
             
+            print(String(data: data, encoding: .utf8)!)
+            
             if (applyTransform) {
                 // required transformation for results
                 let range = 5..<data.count
                 let transformedData = data.subdata(in: range) /* subset response data! */
-                
-                print(String(data: transformedData, encoding: .utf8)!)
                 
                 return .success(try decoder.decode(ResponseType.self, from: transformedData))
             } else {
@@ -109,6 +109,7 @@ class UdacityApi {
             // send the request over the wire
             let session = URLSession.shared
             let (data, _) =  try await session.data(for: request as URLRequest)
+        
         
             return .success(try decoder.decode(ResponseType.self, from: data))
             
@@ -221,7 +222,7 @@ class UdacityApi {
                 print ("POST OK ")
             case .failure(let error) :
                 // try create
-                print ("POSt Failed", error.localizedDescription)
+                print ("POST Failed", error.localizedDescription)
             }
         }
         
