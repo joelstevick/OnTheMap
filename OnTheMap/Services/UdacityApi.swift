@@ -215,7 +215,7 @@ class UdacityApi {
         case .failure(_) :
             // put failed, try create
             let result2 = await post(url: UdacityUrl.createStudentLocation, body: studentLocation, applyTransform: false, responseType: CreateStudentResponse.self)
-            
+            _
             switch result2 {
             case .success(let response):
                 print ("POST OK ")
