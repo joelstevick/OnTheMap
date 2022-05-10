@@ -251,7 +251,11 @@
                                 <rect key="frame" x="0.0" y="798" width="414" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="R7G-R4-xNw"/>
-                                    <barButtonItem title="Continue &gt;&gt;" id="Tdf-ZP-6F0"/>
+                                    <barButtonItem title="Continue &gt;&gt;" id="Tdf-ZP-6F0">
+                                        <connections>
+                                            <action selector="continueBtnPressed:" destination="aUh-eb-uN8" id="zqF-VY-ERb"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -265,7 +269,7 @@
                             <constraint firstItem="V4O-Sn-E9C" firstAttribute="leading" secondItem="gN0-nD-Dfk" secondAttribute="leading" id="WfF-I6-ATB"/>
                             <constraint firstItem="V4O-Sn-E9C" firstAttribute="bottom" secondItem="Oc1-pJ-bmA" secondAttribute="top" id="hPQ-a6-DVB"/>
                             <constraint firstItem="Oc1-pJ-bmA" firstAttribute="trailing" secondItem="V4O-Sn-E9C" secondAttribute="trailing" id="kaP-ru-5gA"/>
-                            <constraint firstItem="Oc1-pJ-bmA" firstAttribute="bottom" secondItem="gN0-nD-Dfk" secondAttribute="bottom" constant="708" id="mM7-5P-GhZ"/>
+                            <constraint firstItem="Oc1-pJ-bmA" firstAttribute="bottom" secondItem="gN0-nD-Dfk" secondAttribute="bottom" id="mM7-5P-GhZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Location" id="8Gu-JA-o8R">
@@ -277,6 +281,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="V4O-Sn-E9C" id="2qK-cE-49J"/>
+                        <segue destination="bTE-fs-ptS" kind="presentation" identifier="CollectMediaURL" id="t5D-sG-U9W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCe-kR-Uyi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -419,6 +424,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z6A-9n-PdU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5060.8695652173919" y="-919.41964285714278"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="iBs-HD-k9e">
+            <objects>
+                <viewController id="bTE-fs-ptS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FIQ-Ok-O3m">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="leE-Gb-6li"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eda-eV-0Bc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6835" y="-913"/>
         </scene>
     </scenes>
     <resources>

@@ -31,5 +31,11 @@ class CollectLatLonViewController: UIViewController {
     @IBAction func backBtnPressed(_ sender: Any) {
         dismiss(animated: true)
     }
+    @IBAction func continueBtnPressed(_ sender: Any) {
+
+        
+        // next step
+        self.performSegue(withIdentifier: "CollectMediaURL", sender: self)
+    }
     
 }
