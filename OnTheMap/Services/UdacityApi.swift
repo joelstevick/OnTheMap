@@ -87,7 +87,7 @@ class UdacityApi {
                 let transformedData = data.subdata(in: range) /* subset response data! */
                 
                 print(String(data: transformedData, encoding: .utf8)!)
-           
+                
                 return .success(try decoder.decode(ResponseType.self, from: transformedData))
             } else {
                 return .success(try decoder.decode(ResponseType.self, from: data))
@@ -101,7 +101,7 @@ class UdacityApi {
     // MARK: - Api
     func signin(username: String, password: String) async -> String? {
         let body = SignInRequest(username: username, password: password)
-      
+        
         let result = await post(url: UdacityUrl.session, body: body, applyTransform: true, responseType: SignInResponse.self)
         
         switch result {
@@ -197,14 +197,11 @@ class UdacityApi {
     }
     func getSignedInStudentLocation() async -> StudentLocation? {
         if let uniqueKey = defaults.string(forKey: "uniqueKey") {
-            do {
-                let studentLocation = await getStudentLocation(uniqueKey)
-                
-                return studentLocation
-            } catch  {
-                print("Could not get student location \(error)")
-                return nil
-            }
+            
+            let studentLocation = await getStudentLocation(uniqueKey)
+            
+            return studentLocation
+            
         } else {
             return nil
         }

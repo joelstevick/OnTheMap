@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import NanoID
 import CoreLocation
 class MyLinkViewController: UIViewController, UITextFieldDelegate {
     
