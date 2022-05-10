@@ -245,16 +245,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="V4O-Sn-E9C">
-                                <rect key="frame" x="0.0" y="56" width="414" height="786"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="742"/>
                             </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oc1-pJ-bmA">
+                                <rect key="frame" x="0.0" y="798" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="R7G-R4-xNw"/>
+                                    <barButtonItem title="Continue &gt;&gt;" id="Tdf-ZP-6F0"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gN0-nD-Dfk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="V4O-Sn-E9C" firstAttribute="top" secondItem="gN0-nD-Dfk" secondAttribute="top" id="0q7-QA-pyu"/>
+                            <constraint firstItem="Oc1-pJ-bmA" firstAttribute="bottom" secondItem="gN0-nD-Dfk" secondAttribute="bottom" id="Ad3-DI-RIi"/>
                             <constraint firstItem="gN0-nD-Dfk" firstAttribute="trailing" secondItem="V4O-Sn-E9C" secondAttribute="trailing" id="DVR-RP-nCO"/>
+                            <constraint firstItem="Oc1-pJ-bmA" firstAttribute="leading" secondItem="V4O-Sn-E9C" secondAttribute="leading" id="GAf-Th-9hm"/>
                             <constraint firstItem="V4O-Sn-E9C" firstAttribute="leading" secondItem="gN0-nD-Dfk" secondAttribute="leading" id="WfF-I6-ATB"/>
-                            <constraint firstItem="gN0-nD-Dfk" firstAttribute="bottom" secondItem="V4O-Sn-E9C" secondAttribute="bottom" id="hPQ-a6-DVB"/>
+                            <constraint firstItem="V4O-Sn-E9C" firstAttribute="bottom" secondItem="Oc1-pJ-bmA" secondAttribute="top" id="hPQ-a6-DVB"/>
+                            <constraint firstItem="Oc1-pJ-bmA" firstAttribute="trailing" secondItem="V4O-Sn-E9C" secondAttribute="trailing" id="kaP-ru-5gA"/>
+                            <constraint firstItem="Oc1-pJ-bmA" firstAttribute="bottom" secondItem="gN0-nD-Dfk" secondAttribute="bottom" constant="708" id="mM7-5P-GhZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Location" id="8Gu-JA-o8R">
