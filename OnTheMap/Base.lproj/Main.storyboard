@@ -177,18 +177,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wE6-ga-Eil">
-                                <rect key="frame" x="40" y="491" width="334" height="34"/>
+                                <rect key="frame" x="374" y="491" width="0.0" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQo-aX-6VG">
+                                <rect key="frame" x="309" y="771" width="95" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Continue &gt;"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CEG-Pg-CZF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="tQo-aX-6VG" firstAttribute="trailing" secondItem="CEG-Pg-CZF" secondAttribute="trailing" constant="-10" id="6xs-QF-3Jl"/>
                             <constraint firstItem="wE6-ga-Eil" firstAttribute="top" secondItem="jpM-GH-SoT" secondAttribute="bottom" constant="58" id="AQX-Id-GeE"/>
+                            <constraint firstItem="CEG-Pg-CZF" firstAttribute="bottom" secondItem="tQo-aX-6VG" secondAttribute="bottom" constant="40" id="EOf-fZ-Qky"/>
                             <constraint firstItem="jpM-GH-SoT" firstAttribute="centerX" secondItem="ACB-4Z-wKA" secondAttribute="centerX" id="O70-PF-nqN"/>
                             <constraint firstItem="jpM-GH-SoT" firstAttribute="centerY" secondItem="ACB-4Z-wKA" secondAttribute="centerY" id="flO-Ce-u8T"/>
-                            <constraint firstItem="wE6-ga-Eil" firstAttribute="leading" secondItem="CEG-Pg-CZF" secondAttribute="leading" constant="40" id="gPZ-K4-Ha9"/>
+                            <constraint firstItem="wE6-ga-Eil" firstAttribute="leading" secondItem="CEG-Pg-CZF" secondAttribute="trailing" constant="-40" id="gPZ-K4-Ha9"/>
                             <constraint firstItem="CEG-Pg-CZF" firstAttribute="trailing" secondItem="wE6-ga-Eil" secondAttribute="trailing" constant="40" id="ov1-kt-f7l"/>
                         </constraints>
                     </view>
