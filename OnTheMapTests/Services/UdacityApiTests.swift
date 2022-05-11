@@ -65,7 +65,6 @@ class OnTheMapTests: XCTestCase {
         await UdacityApi.shared.setSignedInStudentLocation(savedStudentLocation!)
         
         // get the updated record
-        
         let savedStudentLocation2 = await UdacityApi.shared.getSignedInStudentLocation()
         
         XCTAssertEqual(savedStudentLocation?.uniqueKey, savedStudentLocation2?.uniqueKey)
