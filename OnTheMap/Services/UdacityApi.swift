@@ -44,7 +44,7 @@ class UdacityApi {
             // send the request over the wire
             let session = URLSession.shared
             let (data, _) =  try await session.data(for: request as URLRequest)
-            
+            print(String(data: data, encoding: .utf8)!)
             let decoder = JSONDecoder()
             
             return .success(try decoder.decode(ResponseType.self, from: data))
@@ -81,7 +81,6 @@ class UdacityApi {
             let session = URLSession.shared
             let (data, _) =  try await session.data(for: request as URLRequest)
             
-            print(String(data: data, encoding: .utf8)!)
             
             if (applyTransform) {
                 // required transformation for results
@@ -105,12 +104,12 @@ class UdacityApi {
             
             var request = try buildPostRequest(url: "\(url.rawValue)/\(parameter)", body: body)
             request.httpMethod = "PUT"
-           
+            
             // send the request over the wire
             let session = URLSession.shared
             let (data, _) =  try await session.data(for: request as URLRequest)
-        
-        
+            print(String(data: data, encoding: .utf8)!)
+            
             return .success(try decoder.decode(ResponseType.self, from: data))
             
         } catch {
@@ -203,16 +202,15 @@ class UdacityApi {
         }
     }
     
-    func persistSignedInStudentLocationUniqueKey(_ uniqueKey: String) {
+    func persistSignedInStudentLocationUniqueKey(uniqueKey: String, objectId: String) {
         defaults.set(uniqueKey, forKey: "uniqueKey")
+        defaults.set(objectId, forKey: "objectId")
     }
     func setSignedInStudentLocation(_ studentLocation: StudentLocation) async {
         
-        if let uniqueKey = studentLocation.uniqueKey {
+        if let objectId = defaults.string(forKey: "objectId") {
             // PUT existing
-            persistSignedInStudentLocationUniqueKey(uniqueKey)
-            
-            let result = await put(url: UdacityUrl.createStudentLocation, body: studentLocation, responseType: PutStudentResponse.self, parameter: uniqueKey)
+            let result = await put(url: UdacityUrl.createStudentLocation, body: studentLocation, responseType: PutStudentResponse.self, parameter: objectId)
             switch result {
             case .success(_):
                 print ("PUT OK ")
@@ -222,20 +220,22 @@ class UdacityApi {
             }
         } else {
             // POST to create
-            let result = await post(url: UdacityUrl.createStudentLocation, body: studentLocation, applyTransform: false, responseType: CreateStudentResponse.self)
+            var studentLocation2 = studentLocation
+            studentLocation2.uniqueKey = NanoID.generate()
+            let result = await post(url: UdacityUrl.createStudentLocation, body: studentLocation2, applyTransform: false, responseType: CreateStudentResponse.self)
             
             switch result {
             case .success(let response):
-                persistSignedInStudentLocationUniqueKey(response.objectId)
+                persistSignedInStudentLocationUniqueKey(uniqueKey: studentLocation2.uniqueKey!, objectId: response.objectId)
                 print ("POST OK ")
             case .failure(let error) :
                 // create failed
                 print ("POST Failed", error.localizedDescription)
             }
         }
-    
         
     }
+    
     func getSignedInStudentLocation() async -> StudentLocation? {
         if let uniqueKey = defaults.string(forKey: "uniqueKey") {
             

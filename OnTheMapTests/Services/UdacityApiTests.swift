@@ -6,6 +6,7 @@
 //
 import MapKit
 import XCTest
+import NanoID
 
 @testable import OnTheMap
 
@@ -49,13 +50,29 @@ class OnTheMapTests: XCTestCase {
     
     func testStudentLocation_GivenUniqueKey_ShouldBeAbleToGetAndSet() async throws {
              
+        // first, initialize a new student
         let studentLocation = StudentLocation(uniqueKey: nil, firstName: "Joe", lastName: "Foo", latitude: 1, longitude: 2, mapString: "somewhere", mediaURL: "https://google.com")
         
         await UdacityApi.shared.setSignedInStudentLocation(studentLocation)
         
-        let savedStudentLocation = await UdacityApi.shared.getSignedInStudentLocation()
+        // get the student
+        var savedStudentLocation = await UdacityApi.shared.getSignedInStudentLocation()
         
-        XCTAssertEqual(savedStudentLocation?.uniqueKey, studentLocation.uniqueKey)
+        // change the student first name
+        savedStudentLocation?.firstName = NanoID.generate()
+        
+        // update in the cloud
+        await UdacityApi.shared.setSignedInStudentLocation(savedStudentLocation!)
+        
+        // get the updated record
+        // get the student
+        Thread.sleep(forTimeInterval: 3)
+        
+        let savedStudentLocation2 = await UdacityApi.shared.getSignedInStudentLocation()
+        
+        XCTAssertEqual(savedStudentLocation?.uniqueKey, savedStudentLocation2?.uniqueKey)
+        XCTAssertEqual(savedStudentLocation?.firstName, savedStudentLocation2?.firstName)
+        
     }
         
 }
