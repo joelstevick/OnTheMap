@@ -30,8 +30,7 @@ class MyLinkViewController: UIViewController, UITextFieldDelegate {
         update()
     }
     
-    // MARK: - Actions
-    @IBAction func cancelBtnPressed(_ sender: Any) {
+    func returnToRoot() {
         if let presentingViewController1 = presentingViewController {
             
             if let presentingViewController2 = presentingViewController1.presentingViewController {
@@ -42,7 +41,10 @@ class MyLinkViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        
+    }
+    // MARK: - Actions
+    @IBAction func cancelBtnPressed(_ sender: Any) {
+        returnToRoot()
     }
     @IBAction func backBtnPressed(_ sender: Any) {
         dismiss(animated: true)
@@ -80,7 +82,7 @@ class MyLinkViewController: UIViewController, UITextFieldDelegate {
             // save to the cloud
             await UdacityApi.shared.setSignedInStudentLocation(signedInUserLocation!)
             
-            dismiss(animated: true)
+            returnToRoot()
         }
     }
     
