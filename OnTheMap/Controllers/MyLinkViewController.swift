@@ -66,7 +66,7 @@ class MyLinkViewController: UIViewController, UITextFieldDelegate {
                
             } else {
                 // new user
-                signedInUserLocation = StudentLocation(uniqueKey: NanoID.generate(), firstName: "", lastName: "", latitude: 0, longitude: 0, mapString: "", mediaURL: "")
+                signedInUserLocation = StudentLocation(uniqueKey: NanoID.generate(), firstName: UdacityApi.shared.firstName!, lastName: UdacityApi.shared.lastName!, latitude: 0, longitude: 0, mapString: "", mediaURL: "")
             }
             
             

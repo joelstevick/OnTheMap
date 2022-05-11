@@ -164,7 +164,6 @@ class UdacityApi {
             if response.error == nil {
                 // get the first and last names
                 await getName(response.account!.key)
-                print("first name: \(firstName) last name: \(lastName)")
                 return nil
             } else {
                 return response.error
