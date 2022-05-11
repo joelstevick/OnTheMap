@@ -17,8 +17,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         errorMessage.isHidden = true
-        
-        navigateToMapView()
     }
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!

@@ -17,10 +17,13 @@ private enum UdacityUrl: String {
     case session = "https://onthemap-api.udacity.com/v1/session"
     case studentLocations = "https://onthemap-api.udacity.com/v1/StudentLocation?limit=200&skip=0"
     case createStudentLocation = "https://onthemap-api.udacity.com/v1/StudentLocation"
+    case users = "https://onthemap-api.udacity.com/v1/users"
 }
 class UdacityApi {
     static let shared = UdacityApi()
-    let defaults = UserDefaults.standard
+    private let defaults = UserDefaults.standard
+    var firstName: String?
+    var lastName: String?
     
     private init() {
         
@@ -35,11 +38,17 @@ class UdacityApi {
         
     }
     private func get<ResponseType: Decodable>
-    (url: UdacityUrl, queryStrings: [String], responseType: ResponseType.Type) async ->
+    (url: UdacityUrl, queryStrings: [String], parameter: String? , responseType: ResponseType.Type,  applyTransform: Bool) async ->
     Result<ResponseType, UdacityApiError> {
         // execute
         do {
-            let request = try buildGetRequest(url: url.rawValue + "&" + queryStrings.joined(separator: "&"))
+            var urlString = url.rawValue
+            if (parameter != nil) {
+                urlString += "/\(parameter!)"
+            }
+            urlString += "&" + queryStrings.joined(separator: "&")
+            
+            let request = try buildGetRequest(url: urlString)
             
             // send the request over the wire
             let session = URLSession.shared
@@ -47,7 +56,16 @@ class UdacityApi {
             print(String(data: data, encoding: .utf8)!)
             let decoder = JSONDecoder()
             
-            return .success(try decoder.decode(ResponseType.self, from: data))
+            if (applyTransform) {
+                // required transformation for results
+                let range = 5..<data.count
+                let transformedData = data.subdata(in: range) /* subset response data! */
+                
+                return .success(try decoder.decode(ResponseType.self, from: transformedData))
+            } else {
+                return .success(try decoder.decode(ResponseType.self, from: data))
+            }
+
         } catch {
             print("ERROR", error)
             return .failure(.NetworkError(description: "Unknown error"))
@@ -118,15 +136,35 @@ class UdacityApi {
         }
     }
     
+    func getName(_ key: String) async {
+        let result = await get(url: UdacityUrl.users, queryStrings: [], parameter: key, responseType: GetUserResponse.self, applyTransform: true)
+        
+        switch result {
+        case .success(let response):
+            
+            firstName = response.first_name
+            lastName = response.last_name
+            
+        case .failure(_) :
+            print("getName failed")
+        }
+    }
     // MARK: - Api
     func signin(username: String, password: String) async -> String? {
         let body = SignInRequest(username: username, password: password)
         
         let result = await post(url: UdacityUrl.session, body: body, applyTransform: true, responseType: SignInResponse.self)
         
+        var response: SignInResponse
+        
         switch result {
-        case .success(let response):
+        case .success(let _response):
+            response = _response
+            
             if response.error == nil {
+                // get the first and last names
+                await getName(response.account!.key)
+                print("first name: \(firstName) last name: \(lastName)")
                 return nil
             } else {
                 return response.error
@@ -134,11 +172,12 @@ class UdacityApi {
         case .failure(let error) :
             return error.localizedDescription
         }
+        
     }
     
     func getStudentLocations() async -> [StudentLocation]? {
         
-        let result = await get(url: UdacityUrl.studentLocations, queryStrings: [], responseType: StudentLocationResponse.self)
+        let result = await get(url: UdacityUrl.studentLocations, queryStrings: [], parameter: nil, responseType: StudentLocationResponse.self, applyTransform: false)
         
         switch result {
         case .success(let response):
@@ -185,7 +224,7 @@ class UdacityApi {
     }
     
     func getStudentLocation(_ uniqueKey: String) async -> StudentLocation? {
-        let result = await get(url: UdacityUrl.studentLocations,queryStrings: ["uniqueKey=\(uniqueKey)"], responseType: StudentLocationResponse.self)
+        let result = await get(url: UdacityUrl.studentLocations,queryStrings: ["uniqueKey=\(uniqueKey)"], parameter: nil,responseType: StudentLocationResponse.self, applyTransform: false)
         
         switch result {
         case .success(let response):

@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import NanoID
 class MyLinkViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Properties
@@ -37,18 +38,20 @@ class MyLinkViewController: UIViewController, UITextFieldDelegate {
                 
                 if let presentingViewController3 = presentingViewController2.presentingViewController {
                     presentingViewController3.dismiss(animated: true)
-                
+                    
                 }
             }
         }
-       
+        
     }
     @IBAction func backBtnPressed(_ sender: Any) {
         dismiss(animated: true)
     }
     @IBAction func saveBtnPress(_ sender: Any) {
         Task {
-            var signedInUserLocation = await UdacityApi.shared.getSignedInStudentLocation()!
+            var firstName: String?
+            var lastName: String?
+            var signedInUserLocation: StudentLocation?
             
             guard let mediaURL = State.shared.getState(key: StateKey.mediaURL.rawValue),
                   let mapString = State.shared.getState(key: StateKey.mapString.rawValue),
@@ -56,15 +59,26 @@ class MyLinkViewController: UIViewController, UITextFieldDelegate {
                 print("Error parsing state!")
                 return
             }
-            signedInUserLocation.mediaURL = mediaURL as! String
-            signedInUserLocation.mapString = mapString as! String
-            signedInUserLocation.latitude = (coordinate as! CLLocationCoordinate2D).latitude
-            signedInUserLocation.longitude = (coordinate as! CLLocationCoordinate2D).longitude
+            
+            if var signedInUserLocationCurrent = await UdacityApi.shared.getSignedInStudentLocation() {
+                // existing user
+                signedInUserLocation = signedInUserLocationCurrent
+               
+            } else {
+                // new user
+                signedInUserLocation = StudentLocation(uniqueKey: NanoID.generate(), firstName: "", lastName: "", latitude: 0, longitude: 0, mapString: "", mediaURL: "")
+            }
+            
+            
+            signedInUserLocation!.mediaURL = mediaURL as! String
+            signedInUserLocation!.mapString = mapString as! String
+            signedInUserLocation!.latitude = (coordinate as! CLLocationCoordinate2D).latitude
+            signedInUserLocation!.longitude = (coordinate as! CLLocationCoordinate2D).longitude
             
             activity.startAnimating()
             
             // save to the cloud
-            await UdacityApi.shared.setSignedInStudentLocation(signedInUserLocation)
+            await UdacityApi.shared.setSignedInStudentLocation(signedInUserLocation!)
             
             dismiss(animated: true)
         }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7511F020282BC52600F5BC0D /* GetUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7511F01F282BC52600F5BC0D /* GetUserResponse.swift */; };
 		753EBFB12822ED8100C53403 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFB02822ED8100C53403 /* AppDelegate.swift */; };
 		753EBFB32822ED8100C53403 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFB22822ED8100C53403 /* SceneDelegate.swift */; };
 		753EBFB52822ED8100C53403 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EBFB42822ED8100C53403 /* LoginViewController.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7511F01F282BC52600F5BC0D /* GetUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserResponse.swift; sourceTree = "<group>"; };
 		753EBFAD2822ED8100C53403 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		753EBFB02822ED8100C53403 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		753EBFB22822ED8100C53403 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				753EBFE32825E72200C53403 /* StudentLocationResponse.swift */,
 				753EBFF028287E1A00C53403 /* CreateStudentLocationResponse.swift */,
 				75D3EFCB282AA60D008932EE /* PutStudentResponse.swift */,
+				7511F01F282BC52600F5BC0D /* GetUserResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				75D3EFCA282A7134008932EE /* MyLinkViewController.swift in Sources */,
 				753EBFE02823497A00C53403 /* GetEnvVar.swift in Sources */,
 				75D3EFC8282A5E53008932EE /* LatLonViewController.swift in Sources */,
+				7511F020282BC52600F5BC0D /* GetUserResponse.swift in Sources */,
 				753EBFF428288D4300C53403 /* MKPointAnnotationWithPrivateData.swift in Sources */,
 				753EBFEA282841F100C53403 /* AddStudentLocationViewController.swift in Sources */,
 				753EBFC72823132000C53403 /* UdacityApi.swift in Sources */,
