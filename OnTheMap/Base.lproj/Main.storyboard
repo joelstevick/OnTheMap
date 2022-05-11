@@ -149,7 +149,7 @@
                     <navigationItem key="navigationItem" title="On The Map" id="ssF-Ag-M8b">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="plus" catalog="system" id="G2g-zD-kds">
                             <connections>
-                                <segue destination="kMM-tU-Bi8" kind="presentation" id="0bv-qa-19g"/>
+                                <segue destination="mCE-qa-9yo" kind="presentation" id="l3J-3G-lp3"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="nuJ-Mn-9jy"/>
@@ -234,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PBx-7Q-dnU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4207" y="-928"/>
+            <point key="canvasLocation" x="3332" y="-960"/>
         </scene>
         <!--My Location-->
         <scene sceneID="3CB-Q3-Tc0">
@@ -250,7 +250,18 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oc1-pJ-bmA">
                                 <rect key="frame" x="0.0" y="798" width="414" height="44"/>
                                 <items>
+                                    <barButtonItem title="&lt;&lt; Back" id="nlC-2n-k5I">
+                                        <connections>
+                                            <action selector="backBtnPressed:" destination="aUh-eb-uN8" id="PzI-GO-O5D"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="R7G-R4-xNw"/>
+                                    <barButtonItem title="Cancel" id="bJw-7x-L08">
+                                        <connections>
+                                            <action selector="cancelBtnPressed:" destination="aUh-eb-uN8" id="m8m-Oc-E6X"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="wqv-z0-wVH"/>
                                     <barButtonItem title="Continue &gt;&gt;" id="Tdf-ZP-6F0">
                                         <connections>
                                             <action selector="continueBtnPressed:" destination="aUh-eb-uN8" id="zqF-VY-ERb"/>
@@ -286,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCe-kR-Uyi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5064" y="-940"/>
+            <point key="canvasLocation" x="4339" y="-960"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PKa-CY-U1j">
@@ -389,24 +400,6 @@
             </objects>
             <point key="canvasLocation" x="197" y="-709"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="XCu-zy-M6V">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kMM-tU-Bi8" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HlB-Sa-1nC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="mCE-qa-9yo" kind="relationship" relationship="rootViewController" id="ngc-N7-x6I"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PvK-F4-I6b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3340.579710144928" y="-928.125"/>
-        </scene>
         <!--My Link -->
         <scene sceneID="iBs-HD-k9e">
             <objects>
@@ -419,7 +412,10 @@
                                 <rect key="frame" x="0.0" y="764" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
+                                    <barButtonItem title="&lt;&lt; Back" id="Upk-l9-9qS"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="EBP-nA-5Zp"/>
+                                    <barButtonItem title="Cancel" id="X2A-gz-KHj"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Pqg-nk-n35"/>
                                     <barButtonItem title="Save" id="ph7-3k-Hf3">
                                         <connections>
                                             <action selector="saveBtnPress:" destination="bTE-fs-ptS" id="6Dg-63-Nt1"/>
@@ -468,7 +464,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eda-eV-0Bc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5854" y="-940"/>
+            <point key="canvasLocation" x="5425" y="-960"/>
         </scene>
     </scenes>
     <resources>
