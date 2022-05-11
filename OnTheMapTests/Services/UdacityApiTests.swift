@@ -65,8 +65,6 @@ class OnTheMapTests: XCTestCase {
         await UdacityApi.shared.setSignedInStudentLocation(savedStudentLocation!)
         
         // get the updated record
-        // get the student
-        Thread.sleep(forTimeInterval: 3)
         
         let savedStudentLocation2 = await UdacityApi.shared.getSignedInStudentLocation()
         
