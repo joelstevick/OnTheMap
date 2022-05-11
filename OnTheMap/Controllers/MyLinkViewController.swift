@@ -30,6 +30,23 @@ class MyLinkViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Actions
+    @IBAction func cancelBtnPressed(_ sender: Any) {
+        if let presentingViewController1 = presentingViewController {
+            if let presentingViewController2 = presentingViewController1.presentingViewController {
+                if let presentingViewController3 = presentingViewController2.presentingViewController {
+                    print("Should pop")
+                    presentingViewController3.dismiss(animated: true)
+                } else {
+                    print("No presenting view controller")
+                }
+            } else {
+                print("No presenting view controller")
+            }
+        } else {
+            print("No presenting view controller")
+        }
+       
+    }
     @IBAction func backBtnPressed(_ sender: Any) {
         dismiss(animated: true)
     }

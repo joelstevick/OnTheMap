@@ -414,7 +414,11 @@
                                 <items>
                                     <barButtonItem title="&lt;&lt; Back" id="Upk-l9-9qS"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="EBP-nA-5Zp"/>
-                                    <barButtonItem title="Cancel" id="X2A-gz-KHj"/>
+                                    <barButtonItem title="Cancel" id="X2A-gz-KHj">
+                                        <connections>
+                                            <action selector="cancelBtnPressed:" destination="bTE-fs-ptS" id="Qtd-oy-Wrj"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Pqg-nk-n35"/>
                                     <barButtonItem title="Save" id="ph7-3k-Hf3">
                                         <connections>
