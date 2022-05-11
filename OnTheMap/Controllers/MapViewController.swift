@@ -26,13 +26,23 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         navigationItem.hidesBackButton = true
         
         // initialize
+        reload()
+
+        
+        // listen for changes
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name(StateChanges.signedInStudentLocation.rawValue), object: nil)
+    }
+    
+    // MARK: - Signed in student location change event handler
+    @objc func reload() {
+        
         Task {
             await getStudentLocations()
             
             await loadMapView()
         }
+       
     }
-    
     // MARK: - Utility functions
     func getStudentLocations() async {
         

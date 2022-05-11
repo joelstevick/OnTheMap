@@ -82,6 +82,9 @@ class MyLinkViewController: UIViewController, UITextFieldDelegate {
             // save to the cloud
             await UdacityApi.shared.setSignedInStudentLocation(signedInUserLocation!)
             
+            // publish this change
+            NotificationCenter.default.post(name: Notification.Name(StateChanges.signedInStudentLocation.rawValue), object: nil)
+            
             returnToRoot()
         }
     }

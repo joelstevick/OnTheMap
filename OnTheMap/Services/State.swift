@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum StateChanges: String {
+    case signedInStudentLocation
+}
+
 class State {
     static let shared = State()
     
