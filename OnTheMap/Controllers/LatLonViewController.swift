@@ -12,7 +12,6 @@ import MapKit
 class LatLonViewController: UIViewController {
 
     // MARK: - Properties
-    
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
@@ -29,15 +28,13 @@ class LatLonViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func cancelBtnPressed(_ sender: Any) {
+        
         if let presentingViewController1 = presentingViewController {
+            
             if let presentingViewController2 = presentingViewController1.presentingViewController {
-                print("Should pop")
+                
                 presentingViewController2.dismiss(animated: true)
-            } else {
-                print("No presenting view controller")
             }
-        } else {
-            print("No presenting view controller")
         }
        
     }
