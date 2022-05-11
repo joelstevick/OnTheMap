@@ -193,9 +193,8 @@
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i9N-Ud-0kb">
-                                <rect key="frame" x="0.0" y="764" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i9N-Ud-0kb">
+                                <rect key="frame" x="0.0" y="798" width="112" height="44"/>
                                 <items>
                                     <barButtonItem title="Cancel" id="njI-38-iOG">
                                         <connections>
@@ -218,10 +217,13 @@
                             <constraint firstItem="IrS-UU-1jZ" firstAttribute="centerX" secondItem="CEG-Pg-CZF" secondAttribute="centerX" id="IsH-Qc-MLD"/>
                             <constraint firstItem="jpM-GH-SoT" firstAttribute="centerX" secondItem="ACB-4Z-wKA" secondAttribute="centerX" id="O70-PF-nqN"/>
                             <constraint firstItem="IrS-UU-1jZ" firstAttribute="top" secondItem="jpM-GH-SoT" secondAttribute="bottom" constant="35" id="R8x-zf-1j0"/>
+                            <constraint firstItem="i9N-Ud-0kb" firstAttribute="bottom" secondItem="CEG-Pg-CZF" secondAttribute="bottom" id="YTP-l7-Mgl"/>
+                            <constraint firstItem="i9N-Ud-0kb" firstAttribute="trailing" secondItem="ACB-4Z-wKA" secondAttribute="trailing" id="cUu-ec-DAt"/>
                             <constraint firstItem="jpM-GH-SoT" firstAttribute="centerY" secondItem="ACB-4Z-wKA" secondAttribute="centerY" id="flO-Ce-u8T"/>
                             <constraint firstItem="wE6-ga-Eil" firstAttribute="leading" secondItem="CEG-Pg-CZF" secondAttribute="trailing" constant="-40" id="gPZ-K4-Ha9"/>
                             <constraint firstItem="wE6-ga-Eil" firstAttribute="leading" secondItem="CEG-Pg-CZF" secondAttribute="leading" constant="40" id="nNY-Dp-Rrt"/>
                             <constraint firstItem="CEG-Pg-CZF" firstAttribute="trailing" secondItem="wE6-ga-Eil" secondAttribute="trailing" constant="40" id="ov1-kt-f7l"/>
+                            <constraint firstItem="i9N-Ud-0kb" firstAttribute="leading" secondItem="CEG-Pg-CZF" secondAttribute="leading" id="xdS-hX-Jyk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add My Location" id="vac-XU-O7R"/>
@@ -408,9 +410,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EgN-KM-Im5">
-                                <rect key="frame" x="0.0" y="764" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EgN-KM-Im5">
+                                <rect key="frame" x="0.0" y="798" width="414" height="44"/>
                                 <items>
                                     <barButtonItem title="&lt;&lt; Back" id="Upk-l9-9qS"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="EBP-nA-5Zp"/>
@@ -446,11 +447,14 @@
                         <viewLayoutGuide key="safeArea" id="leE-Gb-6li"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="EgN-KM-Im5" firstAttribute="bottom" secondItem="leE-Gb-6li" secondAttribute="bottom" id="2Bc-vF-A3S"/>
                             <constraint firstItem="bqi-8s-mpH" firstAttribute="leading" secondItem="leE-Gb-6li" secondAttribute="leading" constant="40" id="X4P-Bk-uZ8"/>
                             <constraint firstItem="bqi-8s-mpH" firstAttribute="centerY" secondItem="FIQ-Ok-O3m" secondAttribute="centerY" id="Z55-r9-eud"/>
                             <constraint firstItem="6Ef-mJ-a3y" firstAttribute="top" secondItem="bqi-8s-mpH" secondAttribute="bottom" constant="66" id="axS-EL-aql"/>
                             <constraint firstItem="6Ef-mJ-a3y" firstAttribute="centerX" secondItem="FIQ-Ok-O3m" secondAttribute="centerX" id="df2-vi-0aw"/>
+                            <constraint firstItem="EgN-KM-Im5" firstAttribute="leading" secondItem="leE-Gb-6li" secondAttribute="leading" id="hI4-ky-aKo"/>
                             <constraint firstItem="leE-Gb-6li" firstAttribute="trailing" secondItem="bqi-8s-mpH" secondAttribute="trailing" constant="40" id="j6X-aV-ddz"/>
+                            <constraint firstItem="EgN-KM-Im5" firstAttribute="trailing" secondItem="leE-Gb-6li" secondAttribute="trailing" id="qlX-cB-arc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Link " id="nEC-dW-58H">
