@@ -33,7 +33,11 @@
 		75D3EFCC282AA60D008932EE /* PutStudentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D3EFCB282AA60D008932EE /* PutStudentResponse.swift */; };
 		937E47AD282D002D00E1A4F4 /* UdacityApi+Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E47AC282D002D00E1A4F4 /* UdacityApi+Get.swift */; };
 		937E47AF282D00AC00E1A4F4 /* UdacityApi+Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E47AE282D00AC00E1A4F4 /* UdacityApi+Post.swift */; };
-		937E47B1282D022C00E1A4F4 /* Udacity+Put.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E47B0282D022C00E1A4F4 /* Udacity+Put.swift */; };
+		937E47B1282D022C00E1A4F4 /* UdacityApi+Put.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E47B0282D022C00E1A4F4 /* UdacityApi+Put.swift */; };
+		937E47B4282D043D00E1A4F4 /* UdacityApi+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E47B3282D043D00E1A4F4 /* UdacityApi+Util.swift */; };
+		937E47B6282D04A900E1A4F4 /* UdacityApi+SignedInStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E47B5282D04A900E1A4F4 /* UdacityApi+SignedInStudent.swift */; };
+		937E47B8282D061900E1A4F4 /* UdacityApi+SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E47B7282D061900E1A4F4 /* UdacityApi+SignIn.swift */; };
+		937E47BA282D067A00E1A4F4 /* UdacityApi+StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E47B9282D067A00E1A4F4 /* UdacityApi+StudentLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +79,11 @@
 		75D3EFCB282AA60D008932EE /* PutStudentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutStudentResponse.swift; sourceTree = "<group>"; };
 		937E47AC282D002D00E1A4F4 /* UdacityApi+Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UdacityApi+Get.swift"; sourceTree = "<group>"; };
 		937E47AE282D00AC00E1A4F4 /* UdacityApi+Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UdacityApi+Post.swift"; sourceTree = "<group>"; };
-		937E47B0282D022C00E1A4F4 /* Udacity+Put.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Udacity+Put.swift"; sourceTree = "<group>"; };
+		937E47B0282D022C00E1A4F4 /* UdacityApi+Put.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UdacityApi+Put.swift"; sourceTree = "<group>"; };
+		937E47B3282D043D00E1A4F4 /* UdacityApi+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UdacityApi+Util.swift"; sourceTree = "<group>"; };
+		937E47B5282D04A900E1A4F4 /* UdacityApi+SignedInStudent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UdacityApi+SignedInStudent.swift"; sourceTree = "<group>"; };
+		937E47B7282D061900E1A4F4 /* UdacityApi+SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UdacityApi+SignIn.swift"; sourceTree = "<group>"; };
+		937E47B9282D067A00E1A4F4 /* UdacityApi+StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UdacityApi+StudentLocation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,7 +215,11 @@
 				753EBFC62823132000C53403 /* UdacityApi.swift */,
 				937E47AC282D002D00E1A4F4 /* UdacityApi+Get.swift */,
 				937E47AE282D00AC00E1A4F4 /* UdacityApi+Post.swift */,
-				937E47B0282D022C00E1A4F4 /* Udacity+Put.swift */,
+				937E47B0282D022C00E1A4F4 /* UdacityApi+Put.swift */,
+				937E47B3282D043D00E1A4F4 /* UdacityApi+Util.swift */,
+				937E47B5282D04A900E1A4F4 /* UdacityApi+SignedInStudent.swift */,
+				937E47B7282D061900E1A4F4 /* UdacityApi+SignIn.swift */,
+				937E47B9282D067A00E1A4F4 /* UdacityApi+StudentLocation.swift */,
 			);
 			path = UdacityApi;
 			sourceTree = "<group>";
@@ -323,7 +335,9 @@
 				753EBFE02823497A00C53403 /* GetEnvVar.swift in Sources */,
 				75D3EFC8282A5E53008932EE /* LatLonViewController.swift in Sources */,
 				7511F020282BC52600F5BC0D /* GetUserResponse.swift in Sources */,
+				937E47B4282D043D00E1A4F4 /* UdacityApi+Util.swift in Sources */,
 				753EBFF428288D4300C53403 /* MKPointAnnotationWithPrivateData.swift in Sources */,
+				937E47B6282D04A900E1A4F4 /* UdacityApi+SignedInStudent.swift in Sources */,
 				753EBFEA282841F100C53403 /* AddStudentLocationViewController.swift in Sources */,
 				753EBFC72823132000C53403 /* UdacityApi.swift in Sources */,
 				753EBFDD282348E200C53403 /* SignInRequest.swift in Sources */,
@@ -335,10 +349,12 @@
 				753EBFB52822ED8100C53403 /* LoginViewController.swift in Sources */,
 				75D3EFCC282AA60D008932EE /* PutStudentResponse.swift in Sources */,
 				753EBFB12822ED8100C53403 /* AppDelegate.swift in Sources */,
+				937E47B8282D061900E1A4F4 /* UdacityApi+SignIn.swift in Sources */,
 				937E47AD282D002D00E1A4F4 /* UdacityApi+Get.swift in Sources */,
+				937E47BA282D067A00E1A4F4 /* UdacityApi+StudentLocation.swift in Sources */,
 				753EBFB32822ED8100C53403 /* SceneDelegate.swift in Sources */,
 				753EBFE42825E72200C53403 /* StudentLocationResponse.swift in Sources */,
-				937E47B1282D022C00E1A4F4 /* Udacity+Put.swift in Sources */,
+				937E47B1282D022C00E1A4F4 /* UdacityApi+Put.swift in Sources */,
 				753EBFE22824670800C53403 /* MapViewController.swift in Sources */,
 				753EBFF128287E1A00C53403 /* CreateStudentLocationResponse.swift in Sources */,
 			);
