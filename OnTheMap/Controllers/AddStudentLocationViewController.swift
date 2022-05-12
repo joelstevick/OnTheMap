@@ -44,6 +44,20 @@ class AddStudentLocationViewController: UIViewController, UITextFieldDelegate {
         // restore state
         if let mapString = State.shared.getState(key: StateKey.mapString.rawValue) {
             textField.text = mapString as? String
+        } else {
+            // otherwise, initialize it from the current value (if any)
+            Task {
+                let signedInStudentLocation = await UdacityApi.shared.getSignedInStudentLocation()
+                
+                if let signedInStudentLocation = signedInStudentLocation {
+                    textField.text = signedInStudentLocation.mapString
+                    
+                    DispatchQueue.main.async {
+                        self.update()
+                    }
+                }
+            }
+            
         }
         
         update()

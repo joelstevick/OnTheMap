@@ -25,6 +25,19 @@ class MyLinkViewController: UIViewController, UITextFieldDelegate {
         
         if let mediaURL = mediaURL {
             myLink.text = mediaURL as? String
+        } else {
+            // otherwise, initialize it from the current value (if any)
+            Task {
+                let signedInStudentLocation = await UdacityApi.shared.getSignedInStudentLocation()
+                
+                if let signedInStudentLocation = signedInStudentLocation {
+                    myLink.text = signedInStudentLocation.mediaURL
+                    
+                    DispatchQueue.main.async {
+                        self.update()
+                    }
+                }
+            }
         }
         
         update()
@@ -37,7 +50,6 @@ class MyLinkViewController: UIViewController, UITextFieldDelegate {
                 
                 if let presentingViewController3 = presentingViewController2.presentingViewController {
                     presentingViewController3.dismiss(animated: true)
-                    
                 }
             }
         }
