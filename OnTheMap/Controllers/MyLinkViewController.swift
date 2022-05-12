@@ -63,8 +63,7 @@ class MyLinkViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func saveBtnPress(_ sender: Any) {
         Task {
-            var firstName: String?
-            var lastName: String?
+
             var signedInUserLocation: StudentLocation?
             
             guard let mediaURL = State.shared.getState(key: StateKey.mediaURL.rawValue),
@@ -74,7 +73,7 @@ class MyLinkViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             
-            if var signedInUserLocationCurrent = await UdacityApi.shared.getSignedInStudentLocation() {
+            if let signedInUserLocationCurrent = await UdacityApi.shared.getSignedInStudentLocation() {
                 // existing user
                 signedInUserLocation = signedInUserLocationCurrent
                
