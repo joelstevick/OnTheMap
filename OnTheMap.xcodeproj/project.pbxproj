@@ -150,11 +150,8 @@
 		753EBFC5282312D700C53403 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				753EBFC62823132000C53403 /* UdacityApi.swift */,
-				937E47AC282D002D00E1A4F4 /* UdacityApi+Get.swift */,
+				937E47B2282D03A800E1A4F4 /* UdacityApi */,
 				75D3EFC42829DE6B008932EE /* State.swift */,
-				937E47AE282D00AC00E1A4F4 /* UdacityApi+Post.swift */,
-				937E47B0282D022C00E1A4F4 /* Udacity+Put.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -202,6 +199,17 @@
 				753EBFF328288D4300C53403 /* MKPointAnnotationWithPrivateData.swift */,
 			);
 			path = Class;
+			sourceTree = "<group>";
+		};
+		937E47B2282D03A800E1A4F4 /* UdacityApi */ = {
+			isa = PBXGroup;
+			children = (
+				753EBFC62823132000C53403 /* UdacityApi.swift */,
+				937E47AC282D002D00E1A4F4 /* UdacityApi+Get.swift */,
+				937E47AE282D00AC00E1A4F4 /* UdacityApi+Post.swift */,
+				937E47B0282D022C00E1A4F4 /* Udacity+Put.swift */,
+			);
+			path = UdacityApi;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
