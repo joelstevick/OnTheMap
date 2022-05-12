@@ -39,6 +39,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    // MARK: - Utility methods
     func navigateToMapView() {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let mapViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
