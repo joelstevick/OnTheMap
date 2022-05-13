@@ -9,8 +9,13 @@ import Foundation
 import UIKit
 
 extension UdacityApi {
-    func showError(viewContoller: UIViewController, message: String) {
+    func showError(viewController: UIViewController, message: String) {
         let alert = UIAlertController(title: "Network Error", message: message, preferredStyle: .alert)
-        alert.present(viewContoller, animated: true)
+        
+        DispatchQueue.main.async {
+            viewController.present(alert, animated: true, completion: nil)
+            
+        }
+        
     }
 }

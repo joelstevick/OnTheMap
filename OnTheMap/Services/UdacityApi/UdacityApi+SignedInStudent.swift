@@ -24,7 +24,7 @@ extension UdacityApi {
                 print ("PUT OK ")
             case .failure(let error) :
                 // create failed
-                showError(viewContoller: viewController, message: error.localizedDescription)
+                showError(viewController: viewController, message: error.localizedDescription)
             }
         } else {
             // POST to create
@@ -38,7 +38,7 @@ extension UdacityApi {
                 print ("POST OK ")
             case .failure(let error) :
                 // create failed
-                showError(viewContoller: viewController, message: error.localizedDescription)
+                showError(viewController: viewController, message: error.localizedDescription)
             }
         }
         

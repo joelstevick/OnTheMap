@@ -19,7 +19,7 @@ extension UdacityApi {
             lastName = response.last_name
             
         case .failure(_) :
-            showError(viewContoller: viewController, message: "Could not get the name")
+            showError(viewController: viewController, message: "Could not get the name")
         }
     }
     

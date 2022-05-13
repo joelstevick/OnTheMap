@@ -36,6 +36,7 @@ extension UdacityApi {
             print(String(data: data, encoding: .utf8)!)
             let decoder = JSONDecoder()
             
+            showError(viewController: viewController, message: "No error")
             if (applyTransform) {
                 // required transformation for results
                 let range = 5..<data.count
@@ -47,7 +48,7 @@ extension UdacityApi {
             }
 
         } catch {
-            showError(viewContoller: viewController, message: error.localizedDescription)
+            showError(viewController: viewController, message: error.localizedDescription)
             return .failure(.NetworkError(description: "Unknown error"))
         }
     }
