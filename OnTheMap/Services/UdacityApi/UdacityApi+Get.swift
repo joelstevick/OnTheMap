@@ -47,7 +47,7 @@ extension UdacityApi {
             }
 
         } catch {
-            print("ERROR", error)
+            showError(viewContoller: viewController, message: error.localizedDescription)
             return .failure(.NetworkError(description: "Unknown error"))
         }
     }

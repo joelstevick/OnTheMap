@@ -28,6 +28,7 @@ extension UdacityApi {
                 return response.error
             }
         case .failure(let error) :
+            showError(viewContoller: viewController, message: error.localizedDescription)
             return error.localizedDescription
         }
         
