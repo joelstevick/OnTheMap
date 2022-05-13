@@ -18,7 +18,7 @@ class TableViewController: UITableViewController {
 
         // initialize
         Task {
-            await getStudentLocations()
+            await loadStudentLocations()
             
             tableView.reloadData()
         }
@@ -60,7 +60,7 @@ class TableViewController: UITableViewController {
     }
 
     // MARK: - Utility functions
-    func getStudentLocations() async {
+    func loadStudentLocations() async {
         
         studentLocations = await UdacityApi.shared.getStudentLocations(refresh: false)
        

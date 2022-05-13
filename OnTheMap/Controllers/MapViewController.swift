@@ -27,31 +27,37 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         // initialize
         reload()
-
+        
         
         // listen for changes
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name(StateChanges.signedInStudentLocation.rawValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: Notification.Name(StateChanges.signedInStudentLocation.rawValue), object: nil)
     }
     
     // MARK: - Signed in student location change event handler
-    @objc func reload() {
+    @objc func refresh() {
+        studentLocations = nil
+        
+        reload()
+    }
+    func reload() {
         
         Task {
-            await getStudentLocations()
+            await loadStudentLocations()
             
             await loadMapView()
         }
-       
     }
     // MARK: - Utility functions
-    func getStudentLocations() async {
+    func loadStudentLocations() async {
         
-        studentLocations = await UdacityApi.shared.getStudentLocations(refresh: true)
-        
-        signedInUserLocation = await UdacityApi.shared.getSignedInStudentLocation()
-        
-        if let signedInUserLocation = signedInUserLocation {
-            studentLocations?.append(signedInUserLocation)
+        if studentLocations == nil {
+            studentLocations = await UdacityApi.shared.getStudentLocations(refresh: true)
+            
+            signedInUserLocation = await UdacityApi.shared.getSignedInStudentLocation()
+            
+            if let signedInUserLocation = signedInUserLocation {
+                studentLocations?.append(signedInUserLocation)
+            }
         }
         
     }
