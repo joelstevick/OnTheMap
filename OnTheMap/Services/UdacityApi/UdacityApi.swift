@@ -23,6 +23,7 @@ class UdacityApi {
     let defaults = UserDefaults.standard
     var firstName: String?
     var lastName: String?
+    var studentLocations: [StudentLocation]?
     
     private init() {}
 }

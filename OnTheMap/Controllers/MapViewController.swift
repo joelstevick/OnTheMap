@@ -46,7 +46,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     // MARK: - Utility functions
     func getStudentLocations() async {
         
-        studentLocations = await UdacityApi.shared.getStudentLocations()
+        studentLocations = await UdacityApi.shared.getStudentLocations(refresh: true)
         
         signedInUserLocation = await UdacityApi.shared.getSignedInStudentLocation()
         
