@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 extension UdacityApi {
-    func getName(_ key: String) async {
-        let result = await get(url: UdacityUrl.users, queryStrings: [], parameter: key, responseType: GetUserResponse.self, applyTransform: true)
+    func getName(_ key: String, viewController: UIViewController) async {
+        let result = await get(url: UdacityUrl.users, queryStrings: [], parameter: key, responseType: GetUserResponse.self, applyTransform: true, viewController: viewController)
         
         switch result {
         case .success(let response):

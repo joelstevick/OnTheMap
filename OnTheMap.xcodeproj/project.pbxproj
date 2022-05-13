@@ -38,6 +38,7 @@
 		937E47B6282D04A900E1A4F4 /* UdacityApi+SignedInStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E47B5282D04A900E1A4F4 /* UdacityApi+SignedInStudent.swift */; };
 		937E47B8282D061900E1A4F4 /* UdacityApi+SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E47B7282D061900E1A4F4 /* UdacityApi+SignIn.swift */; };
 		937E47BA282D067A00E1A4F4 /* UdacityApi+StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E47B9282D067A00E1A4F4 /* UdacityApi+StudentLocation.swift */; };
+		93F86260282E9C5200C2CCC2 /* Udacity+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F8625F282E9C5200C2CCC2 /* Udacity+Error.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		937E47B5282D04A900E1A4F4 /* UdacityApi+SignedInStudent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UdacityApi+SignedInStudent.swift"; sourceTree = "<group>"; };
 		937E47B7282D061900E1A4F4 /* UdacityApi+SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UdacityApi+SignIn.swift"; sourceTree = "<group>"; };
 		937E47B9282D067A00E1A4F4 /* UdacityApi+StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UdacityApi+StudentLocation.swift"; sourceTree = "<group>"; };
+		93F8625F282E9C5200C2CCC2 /* Udacity+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Udacity+Error.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 				937E47B5282D04A900E1A4F4 /* UdacityApi+SignedInStudent.swift */,
 				937E47B7282D061900E1A4F4 /* UdacityApi+SignIn.swift */,
 				937E47B9282D067A00E1A4F4 /* UdacityApi+StudentLocation.swift */,
+				93F8625F282E9C5200C2CCC2 /* Udacity+Error.swift */,
 			);
 			path = UdacityApi;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				753EBFDD282348E200C53403 /* SignInRequest.swift in Sources */,
 				753EBFE628273DCC00C53403 /* TabBarController.swift in Sources */,
 				937E47AF282D00AC00E1A4F4 /* UdacityApi+Post.swift in Sources */,
+				93F86260282E9C5200C2CCC2 /* Udacity+Error.swift in Sources */,
 				753EBFE828273F3700C53403 /* TableViewController.swift in Sources */,
 				753EBFDB2823235F00C53403 /* SignInResponse.swift in Sources */,
 				75D3EFC52829DE6B008932EE /* State.swift in Sources */,

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension UdacityApi {
     
@@ -17,7 +18,7 @@ extension UdacityApi {
         
     }
     func get<ResponseType: Decodable>
-    (url: UdacityUrl, queryStrings: [String], parameter: String? , responseType: ResponseType.Type,  applyTransform: Bool) async ->
+    (url: UdacityUrl, queryStrings: [String], parameter: String? , responseType: ResponseType.Type,  applyTransform: Bool, viewController: UIViewController) async ->
     Result<ResponseType, UdacityApiError> {
         // execute
         do {

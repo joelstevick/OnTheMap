@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 extension UdacityApi {
-    func signin(username: String, password: String) async -> String? {
+    func signin(username: String, password: String, viewController: UIViewController) async -> String? {
         let body = SignInRequest(username: username, password: password)
         
-        let result = await post(url: UdacityUrl.session, body: body, applyTransform: true, responseType: SignInResponse.self)
+        let result = await post(url: UdacityUrl.session, body: body, applyTransform: true, responseType: SignInResponse.self, viewController: viewController)
         
         var response: SignInResponse
         
@@ -21,7 +22,7 @@ extension UdacityApi {
             
             if response.error == nil {
                 // get the first and last names
-                await getName(response.account!.key)
+                await getName(response.account!.key, viewController: viewController)
                 return nil
             } else {
                 return response.error

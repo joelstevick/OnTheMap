@@ -27,7 +27,7 @@ class LoginViewController: UIViewController {
         activityIndicator.startAnimating()
         
         Task {
-            let signinError = await UdacityApi.shared.signin(username: email.text!, password: password.text!)
+            let signinError = await UdacityApi.shared.signin(username: email.text!, password: password.text!, viewController: self)
             
             self.activityIndicator.stopAnimating()
             

@@ -51,9 +51,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func loadStudentLocations() async {
         
         if studentLocations == nil {
-            studentLocations = await UdacityApi.shared.getStudentLocations(refresh: true)
+            studentLocations = await UdacityApi.shared.getStudentLocations(refresh: true, viewController: self)
             
-            signedInUserLocation = await UdacityApi.shared.getSignedInStudentLocation()
+            signedInUserLocation = await UdacityApi.shared.getSignedInStudentLocation(viewController: self)
             
             if let signedInUserLocation = signedInUserLocation {
                 studentLocations?.append(signedInUserLocation)

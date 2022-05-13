@@ -62,7 +62,7 @@ class TableViewController: UITableViewController {
     // MARK: - Utility functions
     func loadStudentLocations() async {
         
-        studentLocations = await UdacityApi.shared.getStudentLocations(refresh: false)
+        studentLocations = await UdacityApi.shared.getStudentLocations(refresh: false, viewController: self)
        
     }
     

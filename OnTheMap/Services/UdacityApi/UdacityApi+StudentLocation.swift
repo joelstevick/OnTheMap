@@ -6,16 +6,17 @@
 //
 
 import Foundation
+import UIKit
 
 extension UdacityApi {
     
-    func getStudentLocations(refresh: Bool) async -> [StudentLocation]? {
+    func getStudentLocations(refresh: Bool, viewController: UIViewController) async -> [StudentLocation]? {
         
         // cached?
         if let studentLocations = studentLocations {
             return studentLocations
         } else {
-            let result = await get(url: UdacityUrl.studentLocations, queryStrings: [], parameter: nil, responseType: StudentLocationResponse.self, applyTransform: false)
+            let result = await get(url: UdacityUrl.studentLocations, queryStrings: [], parameter: nil, responseType: StudentLocationResponse.self, applyTransform: false, viewController: viewController)
             
             switch result {
             case .success(let response):
@@ -28,8 +29,8 @@ extension UdacityApi {
         }
     }
     
-    func getStudentLocation(_ uniqueKey: String) async -> StudentLocation? {
-        let result = await get(url: UdacityUrl.studentLocations,queryStrings: ["uniqueKey=\(uniqueKey)"], parameter: nil,responseType: StudentLocationResponse.self, applyTransform: false)
+    func getStudentLocation(_ uniqueKey: String, viewController: UIViewController) async -> StudentLocation? {
+        let result = await get(url: UdacityUrl.studentLocations,queryStrings: ["uniqueKey=\(uniqueKey)"], parameter: nil,responseType: StudentLocationResponse.self, applyTransform: false, viewController: viewController)
         
         switch result {
         case .success(let response):

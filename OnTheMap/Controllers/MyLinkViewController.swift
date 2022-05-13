@@ -28,7 +28,7 @@ class MyLinkViewController: UIViewController, UITextFieldDelegate {
         } else {
             // otherwise, initialize it from the current value (if any)
             Task {
-                let signedInStudentLocation = await UdacityApi.shared.getSignedInStudentLocation()
+                let signedInStudentLocation = await UdacityApi.shared.getSignedInStudentLocation(viewController: self)
                 
                 if let signedInStudentLocation = signedInStudentLocation {
                     myLink.text = signedInStudentLocation.mediaURL
@@ -73,7 +73,7 @@ class MyLinkViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             
-            if let signedInUserLocationCurrent = await UdacityApi.shared.getSignedInStudentLocation() {
+            if let signedInUserLocationCurrent = await UdacityApi.shared.getSignedInStudentLocation(viewController: self) {
                 // existing user
                 signedInUserLocation = signedInUserLocationCurrent
                
@@ -91,7 +91,7 @@ class MyLinkViewController: UIViewController, UITextFieldDelegate {
             activity.startAnimating()
             
             // save to the cloud
-            await UdacityApi.shared.setSignedInStudentLocation(signedInUserLocation!)
+            await UdacityApi.shared.setSignedInStudentLocation(signedInUserLocation!, viewController: self)
             
             // publish this change
             NotificationCenter.default.post(name: Notification.Name(StateChanges.signedInStudentLocation.rawValue), object: nil)
