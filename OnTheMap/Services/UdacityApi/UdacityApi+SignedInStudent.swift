@@ -49,7 +49,6 @@ extension UdacityApi {
             
             let studentLocation = await getStudentLocation(uniqueKey, viewController: viewController)
             
-            print(studentLocation)
             return studentLocation
             
         } else {
