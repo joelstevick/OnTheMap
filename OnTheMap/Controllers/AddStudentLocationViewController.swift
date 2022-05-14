@@ -28,6 +28,8 @@ class AddStudentLocationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var continueBtn: UIBarButtonItem!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
+    var adjustForKeyboard = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +38,8 @@ class AddStudentLocationViewController: UIViewController, UITextFieldDelegate {
         
         // initialize step-state
         State.shared.reset()
+        
+        subscribeToKeyboardNotifications()
         
         update()
         
@@ -104,7 +108,33 @@ class AddStudentLocationViewController: UIViewController, UITextFieldDelegate {
         
         dismiss(animated: true)
     }
+    // MARK: - Keyboard adjustments
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        adjustForKeyboard = true
+    }
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if adjustForKeyboard {
+            view.frame.origin.y = -1 * getKeyboardHeight(notification)
+        }
+    }
+    @objc func keyboardWillHide(_ notification: Notification) {
+        view.frame.origin.y = 0
+    }
+    func subscribeToKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
     
+    func unsubscribeToKeyboardNotifications () {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil )
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil )
+    }
+    
+    func getKeyboardHeight(_ notification: Notification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.cgRectValue.height
+    }
     // MARK: - Utility methods
     func update() {
         if let text = textField.text {
