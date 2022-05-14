@@ -15,6 +15,7 @@ struct StudentLocation: Codable {
     var longitude: Double
     var mapString: String
     var mediaURL: String
+    var updatedAt: String
 }
 
 struct StudentLocationResponse: Codable {

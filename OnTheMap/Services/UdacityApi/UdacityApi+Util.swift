@@ -49,6 +49,9 @@ extension UdacityApi {
             
             
             // sort
+            print(sl.map({ studentLocation in
+                return studentLocation.updatedAt
+            }))
             sl.sort { $0.firstName < $1.firstName }
             
             return sl
