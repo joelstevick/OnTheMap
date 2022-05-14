@@ -216,18 +216,26 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="j9P-bU-LHX">
+                                <rect key="frame" x="37.5" y="614" width="37" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="6OJ-u3-kzb"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CEG-Pg-CZF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="wE6-ga-Eil" firstAttribute="top" secondItem="jpM-GH-SoT" secondAttribute="bottom" constant="58" id="AQX-Id-GeE"/>
                             <constraint firstItem="IrS-UU-1jZ" firstAttribute="centerX" secondItem="CEG-Pg-CZF" secondAttribute="centerX" id="IsH-Qc-MLD"/>
+                            <constraint firstItem="j9P-bU-LHX" firstAttribute="top" secondItem="wE6-ga-Eil" secondAttribute="bottom" constant="89" id="J5f-vY-o6K"/>
                             <constraint firstItem="jpM-GH-SoT" firstAttribute="centerX" secondItem="ACB-4Z-wKA" secondAttribute="centerX" id="O70-PF-nqN"/>
                             <constraint firstItem="IrS-UU-1jZ" firstAttribute="top" secondItem="jpM-GH-SoT" secondAttribute="bottom" constant="35" id="R8x-zf-1j0"/>
                             <constraint firstItem="i9N-Ud-0kb" firstAttribute="bottom" secondItem="CEG-Pg-CZF" secondAttribute="bottom" id="YTP-l7-Mgl"/>
                             <constraint firstItem="i9N-Ud-0kb" firstAttribute="trailing" secondItem="ACB-4Z-wKA" secondAttribute="trailing" id="cUu-ec-DAt"/>
                             <constraint firstItem="jpM-GH-SoT" firstAttribute="centerY" secondItem="ACB-4Z-wKA" secondAttribute="centerY" id="flO-Ce-u8T"/>
                             <constraint firstItem="wE6-ga-Eil" firstAttribute="leading" secondItem="CEG-Pg-CZF" secondAttribute="trailing" constant="-40" id="gPZ-K4-Ha9"/>
+                            <constraint firstItem="j9P-bU-LHX" firstAttribute="centerX" secondItem="ACB-4Z-wKA" secondAttribute="centerX" id="iq3-f3-SmW"/>
                             <constraint firstItem="wE6-ga-Eil" firstAttribute="leading" secondItem="CEG-Pg-CZF" secondAttribute="leading" constant="40" id="nNY-Dp-Rrt"/>
                             <constraint firstItem="CEG-Pg-CZF" firstAttribute="trailing" secondItem="wE6-ga-Eil" secondAttribute="trailing" constant="40" id="ov1-kt-f7l"/>
                             <constraint firstItem="i9N-Ud-0kb" firstAttribute="leading" secondItem="CEG-Pg-CZF" secondAttribute="leading" id="xdS-hX-Jyk"/>
@@ -235,6 +243,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add My Location" id="vac-XU-O7R"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="j9P-bU-LHX" id="AR0-qX-I9U"/>
                         <outlet property="continueBtn" destination="mEP-pP-zn7" id="x6Z-ce-cbl"/>
                         <outlet property="textField" destination="wE6-ga-Eil" id="fQS-ZN-inp"/>
                         <outlet property="unrecognizedLocation" destination="IrS-UU-1jZ" id="eX9-Dm-gFi"/>
@@ -243,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PBx-7Q-dnU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3332" y="-960"/>
+            <point key="canvasLocation" x="3331.884057971015" y="-960.26785714285711"/>
         </scene>
         <!--My Location-->
         <scene sceneID="3CB-Q3-Tc0">

@@ -26,6 +26,7 @@ class AddStudentLocationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var unrecognizedLocation: UILabel!
     @IBOutlet weak var continueBtn: UIBarButtonItem!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +72,8 @@ class AddStudentLocationViewController: UIViewController, UITextFieldDelegate {
     }
     // MARK: - Actions
     @IBAction func continueBtnPressed(_ sender: Any) {
+        activityIndicatorView.startAnimating()
+        
         // convert mapString to coords
         let mapString = textField.text!.trimmingCharacters(in: CharacterSet.whitespaces)
         
@@ -88,6 +91,8 @@ class AddStudentLocationViewController: UIViewController, UITextFieldDelegate {
             // persist state
             State.shared.setState(key: StateKey.mapString.rawValue, value: mapString)
             State.shared.setState(key: StateKey.coordinate.rawValue, value: location.coordinate)
+            
+            self.activityIndicatorView.stopAnimating();
             
             // next step
             self.performSegue(withIdentifier: "CollectLatLon", sender: self)
