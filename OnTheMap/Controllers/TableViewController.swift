@@ -33,7 +33,7 @@ class TableViewController: UITableViewController {
         Task {
             await loadStudentLocations()
             
-            await tableView.reloadData()
+            tableView.reloadData()
         }
     }
     
