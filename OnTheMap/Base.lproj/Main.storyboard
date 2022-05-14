@@ -147,6 +147,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="ssF-Ag-M8b">
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="zhU-m3-nn5" userLabel="logout">
+                            <connections>
+                                <action selector="logoutPressed:" destination="Vl3-AM-rg0" id="Yrh-wU-Rtg"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="arrow.clockwise" catalog="system" id="nuJ-Mn-9jy" userLabel="refresh"/>
                             <barButtonItem title="Item" image="plus" catalog="system" id="G2g-zD-kds" userLabel="+">
@@ -364,6 +369,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="On The Map" id="Nu7-k3-7hh">
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="0Rb-Fu-SvT" userLabel="logout">
+                            <connections>
+                                <action selector="logoutPressed:" destination="q49-5u-545" id="GX8-q8-ktZ"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="arrow.clockwise" catalog="system" id="fde-WE-mtW" userLabel="refresh"/>
                             <barButtonItem title="Item" image="plus" catalog="system" id="RcE-OR-fUX" userLabel="+">
@@ -487,7 +497,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="l3J-3G-lp3"/>
+        <segue reference="ida-FI-6j0"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="LaunchLogo" width="80" height="80"/>

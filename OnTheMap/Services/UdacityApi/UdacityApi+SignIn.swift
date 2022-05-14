@@ -31,7 +31,5 @@ extension UdacityApi {
             showError(viewController: viewController, message: error.localizedDescription)
             return error.localizedDescription
         }
-        
-    }
-   
+    }   
 }

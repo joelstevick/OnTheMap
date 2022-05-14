@@ -33,6 +33,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: Notification.Name(StateChanges.signedInStudentLocation.rawValue), object: nil)
     }
     
+    // MARK: - Actions
+    
+    @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
+        UdacityApi.shared.signout()
+    }
     // MARK: - Signed in student location change event handler
     @objc func refresh() {
         studentLocations = nil
