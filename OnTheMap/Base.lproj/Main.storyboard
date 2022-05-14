@@ -147,12 +147,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="ssF-Ag-M8b">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="plus" catalog="system" id="G2g-zD-kds" userLabel="+">
-                            <connections>
-                                <segue destination="mCE-qa-9yo" kind="presentation" id="l3J-3G-lp3"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="nuJ-Mn-9jy" userLabel="refresh"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="arrow.clockwise" catalog="system" id="nuJ-Mn-9jy" userLabel="refresh"/>
+                            <barButtonItem title="Item" image="plus" catalog="system" id="G2g-zD-kds" userLabel="+">
+                                <connections>
+                                    <segue destination="mCE-qa-9yo" kind="presentation" id="l3J-3G-lp3"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="jhx-rW-vPK" id="yO9-RA-qRH"/>
@@ -362,12 +364,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="On The Map" id="Nu7-k3-7hh">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="plus" catalog="system" id="RcE-OR-fUX" userLabel="+">
-                            <connections>
-                                <segue destination="mCE-qa-9yo" kind="presentation" id="ida-FI-6j0"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="fde-WE-mtW" userLabel="refresh"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="arrow.clockwise" catalog="system" id="fde-WE-mtW" userLabel="refresh"/>
+                            <barButtonItem title="Item" image="plus" catalog="system" id="RcE-OR-fUX" userLabel="+">
+                                <connections>
+                                    <segue destination="mCE-qa-9yo" kind="presentation" id="ida-FI-6j0"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MVd-5m-1dz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -483,7 +487,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ida-FI-6j0"/>
+        <segue reference="l3J-3G-lp3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="LaunchLogo" width="80" height="80"/>
