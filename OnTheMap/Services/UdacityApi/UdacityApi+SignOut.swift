@@ -6,10 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 extension UdacityApi {
-    func signout() {
+    func signout(viewController: UIViewController) {
         defaults.removeObject(forKey: "uniqueKey")
         defaults.removeObject(forKey: "objectId")
+        (viewController
+            .parent? 
+            .parent?
+            .parent as! UINavigationController).popToRootViewController(animated: true)
     }
 }

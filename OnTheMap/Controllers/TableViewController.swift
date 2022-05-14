@@ -31,7 +31,7 @@ class TableViewController: UITableViewController {
     // MARK: - Actions
     
     @IBAction func logoutPressed(_ sender: Any) {
-        UdacityApi.shared.signout()
+        UdacityApi.shared.signout(viewController: self)
     }
     // MARK: - Signed in student location change event handler
     @objc func refresh() {
