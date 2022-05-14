@@ -21,7 +21,6 @@ extension UdacityApi {
             // send the request over the wire
             let session = URLSession.shared
             let (data, _) =  try await session.data(for: request as URLRequest)
-            print(String(data: data, encoding: .utf8)!)
             
             return .success(try decoder.decode(ResponseType.self, from: data))
             

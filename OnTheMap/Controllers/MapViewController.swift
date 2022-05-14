@@ -55,9 +55,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             
             signedInUserLocation = await UdacityApi.shared.getSignedInStudentLocation(viewController: self)
             
-            if let signedInUserLocation = signedInUserLocation {
-                studentLocations?.append(signedInUserLocation)
-            }
         }
         
     }

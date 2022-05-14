@@ -38,6 +38,7 @@
 		937E47B6282D04A900E1A4F4 /* UdacityApi+SignedInStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E47B5282D04A900E1A4F4 /* UdacityApi+SignedInStudent.swift */; };
 		937E47B8282D061900E1A4F4 /* UdacityApi+SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E47B7282D061900E1A4F4 /* UdacityApi+SignIn.swift */; };
 		937E47BA282D067A00E1A4F4 /* UdacityApi+StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E47B9282D067A00E1A4F4 /* UdacityApi+StudentLocation.swift */; };
+		93899FF3282F9C5400343BC5 /* StringToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93899FF2282F9C5400343BC5 /* StringToDate.swift */; };
 		93F86260282E9C5200C2CCC2 /* Udacity+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F8625F282E9C5200C2CCC2 /* Udacity+Error.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,7 @@
 		937E47B5282D04A900E1A4F4 /* UdacityApi+SignedInStudent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UdacityApi+SignedInStudent.swift"; sourceTree = "<group>"; };
 		937E47B7282D061900E1A4F4 /* UdacityApi+SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UdacityApi+SignIn.swift"; sourceTree = "<group>"; };
 		937E47B9282D067A00E1A4F4 /* UdacityApi+StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UdacityApi+StudentLocation.swift"; sourceTree = "<group>"; };
+		93899FF2282F9C5400343BC5 /* StringToDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringToDate.swift; sourceTree = "<group>"; };
 		93F8625F282E9C5200C2CCC2 /* Udacity+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Udacity+Error.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				753EBFDF2823497A00C53403 /* GetEnvVar.swift */,
+				93899FF2282F9C5400343BC5 /* StringToDate.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				753EBFB32822ED8100C53403 /* SceneDelegate.swift in Sources */,
 				753EBFE42825E72200C53403 /* StudentLocationResponse.swift in Sources */,
 				937E47B1282D022C00E1A4F4 /* UdacityApi+Put.swift in Sources */,
+				93899FF3282F9C5400343BC5 /* StringToDate.swift in Sources */,
 				753EBFE22824670800C53403 /* MapViewController.swift in Sources */,
 				753EBFF128287E1A00C53403 /* CreateStudentLocationResponse.swift in Sources */,
 			);

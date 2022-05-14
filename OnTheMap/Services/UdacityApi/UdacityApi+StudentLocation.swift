@@ -20,7 +20,16 @@ extension UdacityApi {
             
             switch result {
             case .success(let response):
-                studentLocations = clean(response.results)
+                
+                var studentLocations = response.results
+                let signedInUserLocation = await UdacityApi.shared.getSignedInStudentLocation(viewController: viewController)
+                
+                if let signedInUserLocation = signedInUserLocation {
+                    studentLocations.append(signedInUserLocation)
+                }
+                
+                studentLocations = canonicalize(studentLocations)!
+                
                 return studentLocations
                 
             case .failure(_) :

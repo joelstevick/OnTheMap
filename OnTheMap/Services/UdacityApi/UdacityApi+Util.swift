@@ -23,7 +23,7 @@ extension UdacityApi {
         }
     }
     
-    func clean(_ studentLocations: [StudentLocation]?) -> [StudentLocation]? {
+    func canonicalize(_ studentLocations: [StudentLocation]?) -> [StudentLocation]? {
         if var sl = studentLocations {
             // remove junk rows
             sl = sl.filter({ studentLocation in
@@ -48,11 +48,8 @@ extension UdacityApi {
             }
             
             
-            // sort
-            print(sl.map({ studentLocation in
-                return studentLocation.updatedAt
-            }))
-            sl.sort { $0.firstName < $1.firstName }
+            // sort in reverse chrono
+            sl.sort { stringToDate(isoDate: $0.updatedAt) > stringToDate(isoDate: $1.updatedAt)  }
             
             return sl
         } else {
