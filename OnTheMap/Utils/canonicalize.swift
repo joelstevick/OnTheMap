@@ -31,7 +31,6 @@ func canonicalize(_ studentLocations: [StudentLocation]?) -> [StudentLocation]? 
             sl.append(studentLocation)
         }
         
-        
         // sort in reverse chrono
         sl.sort { stringToDate(isoDate: $0.updatedAt) > stringToDate(isoDate: $1.updatedAt)  }
         
