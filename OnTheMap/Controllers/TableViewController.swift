@@ -22,11 +22,22 @@ class TableViewController: UITableViewController {
             
             tableView.reloadData()
         }
+        
+        
+        // listen for changes
+        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: Notification.Name(StateChanges.signedInStudentLocation.rawValue), object: nil)
     }
 
+    // MARK: - Signed in student location change event handler
+    @objc func refresh() {
+        Task {
+            await loadStudentLocations()
+            
+            await tableView.reloadData()
+        }
+    }
     
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
