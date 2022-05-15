@@ -10,33 +10,35 @@ import UIKit
 
 extension StudentLocations {
     
+    private func fetch(viewController: UIViewController) async {
+        let result = await UdacityApi.shared.get(url: UdacityUrl.studentLocations, queryStrings: [], parameter: nil, responseType: StudentLocationResponse.self, applyTransform: false, viewController: viewController)
+        
+        switch result {
+        case .success(let response):
+            
+            studentLocations = response.results
+            let signedInUserLocation = await getSignedInStudentLocation(viewController: viewController)
+            
+            if let signedInUserLocation = signedInUserLocation {
+                studentLocations!.append(signedInUserLocation)
+            }
+            
+            studentLocations = canonicalize(studentLocations)!
+            
+            return
+            
+        case .failure(_) :
+            showError(viewController: viewController, message: "Could not get users")
+            return
+        }
+    }
     func loadStudentLocations(refresh: Bool, viewController: UIViewController) async {
         
         // cached?
-        if let _ = studentLocations {
-            return
-        } else {
-            let result = await UdacityApi.shared.get(url: UdacityUrl.studentLocations, queryStrings: [], parameter: nil, responseType: StudentLocationResponse.self, applyTransform: false, viewController: viewController)
-            
-            switch result {
-            case .success(let response):
-                
-                studentLocations = response.results
-                let signedInUserLocation = await getSignedInStudentLocation(viewController: viewController)
-                
-                if let signedInUserLocation = signedInUserLocation {
-                    studentLocations!.append(signedInUserLocation)
-                }
-                
-                studentLocations = canonicalize(studentLocations)!
-                
-                return
-                
-            case .failure(_) :
-                showError(viewController: viewController, message: "Could not get users")
-                return
-            }
+        if refresh || studentLocations == nil {
+            await fetch(viewController: viewController)
         }
+
     }
     
     func getStudentLocation(_ uniqueKey: String, viewController: UIViewController) async -> StudentLocation? {
