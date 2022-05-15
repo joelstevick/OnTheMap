@@ -14,7 +14,7 @@ enum UdacityApiError: Error {
 
 enum UdacityUrl: String {
     case session = "https://onthemap-api.udacity.com/v1/session"
-    case studentLocations = "https://onthemap-api.udacity.com/v1/StudentLocation?limit=100&skip=0"
+    case studentLocations = "https://onthemap-api.udacity.com/v1/StudentLocation?limit=100&order=-update&skip=0"
     case createStudentLocation = "https://onthemap-api.udacity.com/v1/StudentLocation"
     case users = "https://onthemap-api.udacity.com/v1/users"
 }
