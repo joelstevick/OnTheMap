@@ -139,7 +139,7 @@
 				753EBFF228288CFE00C53403 /* Class */,
 				753EBFDE2823496400C53403 /* Utils */,
 				753EBFD92823233400C53403 /* Models */,
-				753EBFC5282312D700C53403 /* Services */,
+				753EBFC5282312D700C53403 /* Network */,
 				753EBFB02822ED8100C53403 /* AppDelegate.swift */,
 				753EBFB22822ED8100C53403 /* SceneDelegate.swift */,
 				753EBFC42822F11F00C53403 /* Controllers */,
@@ -165,15 +165,13 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		753EBFC5282312D700C53403 /* Services */ = {
+		753EBFC5282312D700C53403 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				9340EEF62831639000F6CF0D /* Services */,
 				9340EEF1283160EC00F6CF0D /* Auth */,
-				937E47B2282D03A800E1A4F4 /* UdacityApi */,
-				75D3EFC42829DE6B008932EE /* State.swift */,
-				9340EEEC283146A900F6CF0D /* StudentLocations */,
 			);
-			path = Services;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		753EBFCD282316CE00C53403 /* OnTheMapTests */ = {
@@ -242,6 +240,16 @@
 				9340EEF42831618E00F6CF0D /* SignOut.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		9340EEF62831639000F6CF0D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				75D3EFC42829DE6B008932EE /* State.swift */,
+				937E47B2282D03A800E1A4F4 /* UdacityApi */,
+				9340EEEC283146A900F6CF0D /* StudentLocations */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		937E47B2282D03A800E1A4F4 /* UdacityApi */ = {
