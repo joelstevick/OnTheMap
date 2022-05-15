@@ -78,31 +78,34 @@ class AddStudentLocationViewController: UIViewController, UITextFieldDelegate {
     @IBAction func continueBtnPressed(_ sender: Any) {
         activityIndicatorView.startAnimating()
         
-        // convert mapString to coords
-        let mapString = textField.text!.trimmingCharacters(in: CharacterSet.whitespaces)
-        
-        let geoCoder = CLGeocoder()
-        geoCoder.geocodeAddressString(mapString) { (placemarks, error) in
-            guard
-                let placemarks = placemarks,
-                let location = placemarks.first?.location
-            else {
-                // handle no location found
-                self.unrecognizedLocation.isHidden = false
-                return
+        do {
+            // convert mapString to coords
+            let mapString = textField.text!.trimmingCharacters(in: CharacterSet.whitespaces)
+            
+            let geoCoder = CLGeocoder()
+            geoCoder.geocodeAddressString(mapString) { (placemarks, error) in
+                guard
+                    let placemarks = placemarks,
+                    let location = placemarks.first?.location
+                else {
+                    // handle no location found
+                    self.unrecognizedLocation.isHidden = false
+                    return
+                }
+                
+                // persist state
+                State.shared.setState(key: StateKey.mapString.rawValue, value: mapString)
+                State.shared.setState(key: StateKey.coordinate.rawValue, value: location.coordinate)
+                
+                self.activityIndicatorView.stopAnimating();
+                
+                // next step
+                self.performSegue(withIdentifier: "CollectLatLon", sender: self)
             }
             
-            // persist state
-            State.shared.setState(key: StateKey.mapString.rawValue, value: mapString)
-            State.shared.setState(key: StateKey.coordinate.rawValue, value: location.coordinate)
-            
-            self.activityIndicatorView.stopAnimating();
-            
-            // next step
-            self.performSegue(withIdentifier: "CollectLatLon", sender: self)
+        } catch {
+            activityIndicatorView.stopAnimating()
         }
-        
-        
     }
     @IBAction func cancelBtnPressed(_ sender: Any) {
         
