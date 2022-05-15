@@ -9,8 +9,13 @@ import Foundation
 import UIKit
 
 func signout(viewController: UIViewController) {
-    (viewController
-        .parent?
-        .parent?
-        .parent as! UINavigationController).popToRootViewController(animated: true)
+    
+    Task {
+        await UdacityApi.shared.delete(url: UdacityUrl.session, viewController: viewController)
+        
+        await (viewController
+            .parent?
+            .parent?
+            .parent as! UINavigationController).popToRootViewController(animated: true)
+    }
 }
