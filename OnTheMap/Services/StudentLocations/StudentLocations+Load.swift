@@ -8,38 +8,39 @@
 import Foundation
 import UIKit
 
-extension UdacityApi {
+extension StudentLocations {
     
-    func getStudentLocations(refresh: Bool, viewController: UIViewController) async -> [StudentLocation]? {
+    func loadStudentLocations(refresh: Bool, viewController: UIViewController) async {
         
         // cached?
-        if let studentLocations = studentLocations {
-            return studentLocations
+        if let _ = studentLocations {
+            return
         } else {
-            let result = await get(url: UdacityUrl.studentLocations, queryStrings: [], parameter: nil, responseType: StudentLocationResponse.self, applyTransform: false, viewController: viewController)
+            let result = await UdacityApi.shared.get(url: UdacityUrl.studentLocations, queryStrings: [], parameter: nil, responseType: StudentLocationResponse.self, applyTransform: false, viewController: viewController)
             
             switch result {
             case .success(let response):
                 
-                var studentLocations = response.results
-                let signedInUserLocation = await UdacityApi.shared.getSignedInStudentLocation(viewController: viewController)
+                studentLocations = response.results
+                let signedInUserLocation = await getSignedInStudentLocation(viewController: viewController)
                 
                 if let signedInUserLocation = signedInUserLocation {
-                    studentLocations.append(signedInUserLocation)
+                    studentLocations!.append(signedInUserLocation)
                 }
                 
                 studentLocations = canonicalize(studentLocations)!
                 
-                return studentLocations
+                return
                 
             case .failure(_) :
-                return nil
+                showError(viewController: viewController, message: "Could not get users")
+                return
             }
         }
     }
     
     func getStudentLocation(_ uniqueKey: String, viewController: UIViewController) async -> StudentLocation? {
-        let result = await get(url: UdacityUrl.studentLocations,queryStrings: ["uniqueKey=\(uniqueKey)"], parameter: nil,responseType: StudentLocationResponse.self, applyTransform: false, viewController: viewController)
+        let result = await UdacityApi.shared.get(url: UdacityUrl.studentLocations,queryStrings: ["uniqueKey=\(uniqueKey)"], parameter: nil,responseType: StudentLocationResponse.self, applyTransform: false, viewController: viewController)
         
         switch result {
         case .success(let response):

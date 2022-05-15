@@ -10,8 +10,6 @@ import UIKit
 class TableViewController: UITableViewController {
 
     // MARK: - Properties
-    var studentLocations: [StudentLocation]?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,13 +48,13 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return studentLocations?.count ?? 0
+        return StudentLocations.shared.studentLocations?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath)
         
-        let studentLocation = studentLocations![indexPath.row]
+        let studentLocation = StudentLocations.shared.studentLocations![indexPath.row]
         
         cell.textLabel?.text = "\(studentLocation.firstName) \(studentLocation.lastName)"
         
@@ -67,7 +65,7 @@ class TableViewController: UITableViewController {
     
     // MARK: - Table view delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let studentLocation = studentLocations![indexPath.row]
+        let studentLocation = StudentLocations.shared.studentLocations![indexPath.row]
         
         if let url = URL(string: studentLocation.mediaURL) {
         
@@ -78,7 +76,7 @@ class TableViewController: UITableViewController {
     // MARK: - Utility functions
     func loadStudentLocations() async {
         
-        studentLocations = await UdacityApi.shared.getStudentLocations(refresh: false, viewController: self)
+        await StudentLocations.shared.loadStudentLocations(refresh: false, viewController: self)
        
     }
     

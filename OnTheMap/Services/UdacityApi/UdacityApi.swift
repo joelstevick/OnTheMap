@@ -20,10 +20,6 @@ enum UdacityUrl: String {
 }
 class UdacityApi {
     static let shared = UdacityApi()
-    let defaults = UserDefaults.standard
-    var firstName: String?
-    var lastName: String?
-    var studentLocations: [StudentLocation]?
     
     private init() {}
 }

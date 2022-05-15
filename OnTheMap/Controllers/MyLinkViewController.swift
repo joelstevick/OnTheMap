@@ -28,7 +28,7 @@ class MyLinkViewController: UIViewController, UITextFieldDelegate {
         } else {
             // otherwise, initialize it from the current value (if any)
             Task {
-                let signedInStudentLocation = await UdacityApi.shared.getSignedInStudentLocation(viewController: self)
+                let signedInStudentLocation = await StudentLocations.shared.getSignedInStudentLocation(viewController: self)
                 
                 if let signedInStudentLocation = signedInStudentLocation {
                     myLink.text = signedInStudentLocation.mediaURL
@@ -66,6 +66,9 @@ class MyLinkViewController: UIViewController, UITextFieldDelegate {
 
             var signedInUserLocation: StudentLocation?
             
+            print("mediaUrl", State.shared.getState(key: StateKey.mediaURL.rawValue))
+            print("mapString", State.shared.getState(key: StateKey.mapString.rawValue))
+            print("coordinate", State.shared.getState(key: StateKey.coordinate.rawValue))
             guard let mediaURL = State.shared.getState(key: StateKey.mediaURL.rawValue),
                   let mapString = State.shared.getState(key: StateKey.mapString.rawValue),
                   let coordinate = State.shared.getState(key: StateKey.coordinate.rawValue) else {
@@ -73,13 +76,13 @@ class MyLinkViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             
-            if let signedInUserLocationCurrent = await UdacityApi.shared.getSignedInStudentLocation(viewController: self) {
+            if let signedInUserLocationCurrent = await StudentLocations.shared.getSignedInStudentLocation(viewController: self) {
                 // existing user
                 signedInUserLocation = signedInUserLocationCurrent
                
             } else {
                 // new user
-                signedInUserLocation = StudentLocation(uniqueKey: NanoID.generate(), firstName: UdacityApi.shared.firstName!, lastName: UdacityApi.shared.lastName!, latitude: 0, longitude: 0, mapString: "", mediaURL: "", updatedAt: "")
+                signedInUserLocation = StudentLocation(uniqueKey: NanoID.generate(), firstName: StudentLocations.shared.firstName!, lastName: StudentLocations.shared.lastName!, latitude: 0, longitude: 0, mapString: "", mediaURL: "", updatedAt: "")
             }
             
             
@@ -91,7 +94,7 @@ class MyLinkViewController: UIViewController, UITextFieldDelegate {
             activity.startAnimating()
             
             // save to the cloud
-            await UdacityApi.shared.setSignedInStudentLocation(signedInUserLocation!, viewController: self)
+            await StudentLocations.shared.setSignedInStudentLocation(signedInUserLocation!, viewController: self)
             
             // publish this change
             NotificationCenter.default.post(name: Notification.Name(StateChanges.signedInStudentLocation.rawValue), object: nil)

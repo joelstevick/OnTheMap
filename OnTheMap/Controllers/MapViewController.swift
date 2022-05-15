@@ -11,7 +11,6 @@ import MapKit
 class MapViewController: UIViewController, MKMapViewDelegate {
     
     // MARK: - Properties
-    var studentLocations: [StudentLocation]?
     var signedInUserLocation: StudentLocation?
     
     @IBOutlet weak var mapView: MKMapView!
@@ -40,8 +39,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     // MARK: - Signed in student location change event handler
     @objc func refresh() {
-        studentLocations = nil
-        
         reload()
     }
     func reload() {
@@ -54,14 +51,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     // MARK: - Utility functions
     func loadStudentLocations() async {
+                
+        let _ = await StudentLocations.shared.loadStudentLocations(refresh: true, viewController: self)
         
-        if studentLocations == nil {
-            studentLocations = await UdacityApi.shared.getStudentLocations(refresh: true, viewController: self)
-            
-            signedInUserLocation = await UdacityApi.shared.getSignedInStudentLocation(viewController: self)
-            
-        }
-        
+        signedInUserLocation = await StudentLocations.shared.getSignedInStudentLocation(viewController: self)
+       
     }
     
     func makeAnnotation(_ studentLocation: StudentLocation) -> MKPointAnnotationWithPrivateData {
@@ -90,7 +84,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func loadMapView() async {
         var annotations = [MKPointAnnotationWithPrivateData]()
         
-        if let studentLocations = studentLocations {
+        if let studentLocations = StudentLocations.shared.studentLocations {
             for studentLocation in studentLocations {
                 // Place the annotation in an array of annotations.
                 annotations.append(makeAnnotation(studentLocation))

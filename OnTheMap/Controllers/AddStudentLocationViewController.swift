@@ -52,7 +52,7 @@ class AddStudentLocationViewController: UIViewController, UITextFieldDelegate {
         } else {
             // otherwise, initialize it from the current value (if any)
             Task {
-                let signedInStudentLocation = await UdacityApi.shared.getSignedInStudentLocation(viewController: self)
+                let signedInStudentLocation = await StudentLocations.shared.getSignedInStudentLocation(viewController: self)
                 
                 if let signedInStudentLocation = signedInStudentLocation {
                     textField.text = signedInStudentLocation.mapString
