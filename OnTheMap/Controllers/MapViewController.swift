@@ -35,7 +35,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     // MARK: - Actions
     
     @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
-        UdacityApi.shared.signout(viewController: self)
+        signout(viewController: self)
     }
     // MARK: - Signed in student location change event handler
     @objc func refresh() {
